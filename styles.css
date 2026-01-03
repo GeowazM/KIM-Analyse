@@ -1,0 +1,40 @@
+/* styles.css */
+
+:root {
+  --primary-navy: #252653;
+  --accent-yellow: #FFC50B;
+}
+
+/* 1. Navigation (Dunkelblau mit gelben Akzenten) */
+.navbar {
+  background-color: var(--primary-navy) !important;
+}
+
+.navbar-brand, .nav-link {
+  color: #ffffff !important; /* Weiß für Lesbarkeit auf Dunkelblau */
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-yellow) !important;
+}
+
+/* 2. Überschriften */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-navy);
+  font-weight: 700;
+}
+
+/* 3. Links im Text */
+a {
+  color: var(--primary-navy);
+  /*border-bottom: 2px solid var(--accent-yellow); Unterstreichung statt nur Farbe */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* 4. Buttons (falls verwendet) */
+.btn-primary {
+  background-color: var(--primary-navy);
+  border-color: var(--primary-navy);
+}
+

@@ -1,0 +1,18 @@
+---
+title: "Willkommen"
+---
+
+Diese Seite listet die Methodik, die in ... angewandt wurde.
+Dadurch soll im Sinne der DFG die Transparenz und Rerpoduzierbarkeit einer wissenschaftlichen Arbeit gesteigert werden. Darüber hinaus können Daten und Skript in der Hochschullehre eingesetzt werden, um originale Arbeiten behandeln zu können.
+
+
+# Kurzskala intrinisische Motivation (KIM)
+
+Im Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der jeweiligen Unterrichtseinheit mit der **Kurzskala intrinsische Motivation (KIM)**-Skala nach **Wilde et al. (2009)** gemessen. Diese KIM-Skala basiert auf dem Intrinsic Motivation Inventory (IMI) erstellte Fragebogen und erfasst Interesse, Kompetenzwahrnehmung und Autonomieerleben der Lernenden in vier Dimensionen (Keller et al. 2024).
+
+Siehe u.a.:
+
+-   Wilde, M., Bätz, K., Kovaleva, A., & Urhahne, D. (2009). Überprüfung einer Kurzskala intrinsischer Motivation (KIM). Zeitschrift für Didaktik der Naturwissenschaften, 15, 31-45. Oline: <https://www.pedocs.de/frontdoor.php?source_opus=31663>
+
+-   Keller, J., Heger, J., Petersen, M., **Blersch, M.**, Siegmund, A. (2024). Einfluss von Alter, Anzahl mobiler Endgeräte und Festlegung der Interaktionsräume auf die intrinsische Motivation bei App-gestützten Exkursionen mit Satellitenbildern.GW-Unterricht, 176 (4/2024), 35-51. doi: <https://doi.org/10.1553/gw-unterricht176s35>
+

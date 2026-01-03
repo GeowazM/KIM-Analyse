@@ -1,0 +1,1 @@
+{"frames":[],"message":"Fehler in kable(head(df), caption = \"Tab. 1: Import der Daten\") %>% kable_styling(bootstrap_options = c(\"striped\",  : \n  konnte Funktion \"%>%\" nicht finden\n"}

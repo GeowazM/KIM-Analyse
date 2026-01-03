@@ -1,0 +1,7 @@
+"0","#| message: false"
+"0","#| warning: false"
+"0","#| include: false"
+"0",""
+"0","library(rmarkdown)  # für die Online-Darstellung"
+"0","library(knitr);     # für die Online-Darstellung "
+"0","library(kableExtra) # für die Online-Darstellung (für schöneres Styling)"

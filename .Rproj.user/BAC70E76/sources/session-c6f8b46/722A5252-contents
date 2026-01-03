@@ -1,0 +1,264 @@
+---
+title: "KIM-Analyse"
+author: "Blersch, Mario"
+format: 
+  html: default
+  pdf: default
+editor: visual
+execute: 
+  echo: true
+  freeze: true
+---
+
+# Vorbereitung
+
+## Packages importieren
+
+```{r packages}
+#| label: load-packages
+#| message: false
+#| warning: false
+
+library(reshape)
+library(ggplot2)
+library(psych)                                                  
+```
+
+```{r packagesHidden}
+#| message: false
+#| warning: false
+#| include: false
+
+library(rmarkdown)  # für die Online-Darstellung
+library(knitr);     # für die Online-Darstellung 
+library(kableExtra) # für die Online-Darstellung (für schöneres Styling)
+```
+
+Vorsicht: Die Funktion alpha gibt es sowohl im Paket `psych` als auch im Paket `ggplot2`. Hier kann es leicht zu Konflikten kommen. Ein klarer Verweis zur alpha-Funktion in `psych` findet sich im entsprechenden Code-Block weiter unten.
+
+## Arbeitsbereich vorbereiten
+
+Dir setzen, filename korrekt schreiben und working directory definieren.
+
+```{r ArbeitsbereichVorbereiten}
+file = 'Blersch_KIM_Analyse_pub.csv'
+print(paste0('Dateipfad: ', file))
+```
+
+## Daten importieren und vorbereiten
+
+Encoding der zu importierenden CSV-Tabelle beachten: Für deutsche Umlaute bieten sich die Encodings `UTF-8`, `latin1` oder `ISO-8859-1` an.
+
+```{r DatenImportieren}
+df <- read.csv(file, sep = ';', header = TRUE, fileEncoding = "ISO-8859-1")
+#head(df)
+```
+
+```{r DatenImportierenII}
+#| label: tbl-DatenImportierenII
+#| tbl-cap: "Import der Daten"
+#| echo: false
+#| message: false
+#| warning: false
+
+kable(head(df), caption = "Tab. 1: Import der Daten") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+```{r DatenVorbereiten}
+for (i in 1:nrow(df)) {                         # Spalte "gruppe" hinzufügen
+  if(df$ue.name[i] == 'exk'){
+    df$gruppe[i] = "Exkursion"                
+  } else if(df$ue.name[i] == 'szr') {
+    df$gruppe[i] = "Satellitenzeitreihe"               
+  } else {
+    df$gruppe[i] = "Fehler"
+  }
+}                                     
+
+# character Einträge der Spalten in factors umwandeln 
+df$ue.name = factor(df$ue.name, levels = c("exk", "szr"))                       
+df$gruppe = factor(df$gruppe, levels = c("Exkursion", "Satellitenzeitreihe"))   
+
+# Anzahl an SuS pro Gruppe ausgeben
+print(paste0('Gruppe A - Exkursion: n = ', nrow(df[df$gruppe == "Exkursion",]))) 
+print(paste0('Gruppe B - Satellitenzeitreihe: n = ', nrow(df[df$gruppe == "Satellitenzeitreihe",])))
+```
+
+# Reliabilität prüfen (Cronbachs alpha)
+
+Für die Reliabilitätsprüfung verwenden wir das Paket `psych`. Die Labels `x1`, `x2`, `x3` usw. entsprichen den Spaltennamen der importierten Tabelle. 
+
+## Gruppe A
+
+```{r CronbachsAlphaA}
+typ_exk = df[df$gruppe == "Exkursion",]         # SuS von Gruppe B selektieren
+#print(head(typ))
+```
+
+Mit der Funktion alpha berechnen wir Cronbachs alpha für die entsprechende KIM Dimension, die aus drei Items besteht. Die "Dimension" Zusatz bezieht sich auf Items außerhalb der KIM und bezogen sich auf Fragen, die auf die Bedienbarkeit der App abzielten.
+```{r CronbachsAlphaAa}
+alpha_interesse = psych::alpha(subset(typ_exk, select = c(X1, X5, X13)))    # Interesse
+alpha_wahlfreiheit = psych::alpha(subset(typ_exk, select = c(X3, X9, X15))) # Wahlfreiheit
+alpha_druck = psych::alpha(subset(typ_exk, select = c(X4, X14, X16)))       # Druck
+alpha_kompetenz = psych::alpha(subset(typ_exk, select = c(X7, X8, X11)))    # Kompetenz
+alpha_zusatz = psych::alpha(subset(typ_exk, select = c(X2, X6, X10, X12)))  # Zusatz
+```
+
+Wir haben Cronbachs alpha berechnet und in Variablen geschrieben. Jetzt erstellen wir einen Dataframe, um eine bessere Übersicht über die Werte zu erhalten.
+```{r CronbachsAlphaATabelle}
+reliabilitaets_tabelle_exk = data.frame(        # Ergebnistabelle erstellen
+  Exk_Dimension = c("Interesse", "Wahlfreiheit", "Druck", "Kompetenz", "Zusatz"),
+  Cronbachs_Alpha = c(
+    alpha_interesse$total$raw_alpha,            # cronbachs alpha von Interesse
+    alpha_wahlfreiheit$total$raw_alpha,
+    alpha_druck$total$raw_alpha,
+    alpha_kompetenz$total$raw_alpha,
+    alpha_zusatz$total$raw_alpha
+  ))
+print(reliabilitaets_tabelle_exk)               # Cronbachs alpha
+```
+
+## Gruppe B
+
+Hier führen wir das selbe wie bei Gruppe A durch. Mit dem Unterschied, dass wir die Sus selektieren, die an den Satellitenzeitreihen (also Gruppe B) mitgearbeitet haben.
+```{r CronbachsAlphaB}
+typ_szr = df[df$gruppe == "Satellitenzeitreihe",]   # SuS von Gruppe B selektieren
+#print(head(typ))
+alpha_interesse = psych::alpha(subset(typ_szr, select = c(X1, X5, X13)))    # Interesse 
+alpha_wahlfreiheit = psych::alpha(subset(typ_szr, select = c(X3, X9, X15))) # Wahlfreiheit
+alpha_druck = psych::alpha(subset(typ_szr, select = c(X4, X14, X16)))       # Druck
+alpha_kompetenz = psych::alpha(subset(typ_szr, select = c(X7, X8, X11)))    # Kompetenz
+alpha_zusatz = psych::alpha(subset(typ_szr, select = c(X2, X6, X10, X12)))  # Zusatz
+```
+Erneut eine Tabelle zur besseren Übersicht.
+```{r CronbachsAlphaBTabelle}
+reliabilitaets_tabelle_szr = data.frame(            # Ergebnistabelle erstellen
+  Szr_Dimension = c("Interesse", "Wahlfreiheit", "Druck", "Kompetenz", "Zusatz"),
+  Cronbachs_Alpha = c(
+    alpha_interesse$total$raw_alpha,                # cronbachs alpha von Interesse
+    alpha_wahlfreiheit$total$raw_alpha,
+    alpha_druck$total$raw_alpha,
+    alpha_kompetenz$total$raw_alpha,
+    alpha_zusatz$total$raw_alpha
+  ))
+print(reliabilitaets_tabelle_szr)                   # Cronbachs alpha
+```
+
+## Skalenwerte bilden
+
+Wenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.
+
+In unserem Fall ist keine eine Um- oder REkodierung notwendig. Der Skalenwert wird pro Schülerin und Schüler berechnet, weshalb die Zugehörigkeit zur Gruppe hier noch keine Rolle spielt.
+
+```{r SkalenwerteBilden}
+skalenwert_interesse = rowMeans(df[, c("X1", "X5", "X13")])     # Interesse
+skalenwert_wahlfreiheit = rowMeans(df[, c("X3", "X9", "X15")])  # Wahlfreiheit
+skalenwert_druck = rowMeans(df[, c("X4", "X14", "X16")])        # Druck
+skalenwert_kompetenz = rowMeans(df[, c("X7", "X8", "X11")])     # Kompetenz
+skalenwert_zusatz = rowMeans(df[, c("X2", "X6", "X10", "X12")]) # Zusatz
+df_kim = data.frame(
+  susID = df$sus,
+  ueID = df$gruppe,
+  ueName = df$ue.name,
+  date = df$date,
+  Interesse = skalenwert_interesse,
+  Wahlfreiheit = skalenwert_wahlfreiheit,
+  Druck = skalenwert_druck,
+  Kompetenz = skalenwert_kompetenz,
+  Zusatz = skalenwert_zusatz
+)                                             # merge to a data.frame
+
+print(paste0('n = ', nrow(df_kim)))           # print report
+```
+
+```{r SkalenwerteBildenI}
+#| label: tbl-SkalenwerteBildenI
+#| tbl-cap: "Skalenwerte bilden"
+#| echo: false
+#| message: false
+#| warning: false
+
+kable(head(df_kim), caption = "Tab. 2: Skalenwerte") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+# Deskriptive Statistik für die KIM
+
+Hier werden Werte der desktiptiven Statistik wie bei Wilde et al. (2009) und Keller et al. (2024) berechnet.
+Dazu zählen der Mittelwert, der Median, die Standardabweichung (sd), die Quartile und die Differenz der Quartile.
+
+## Gruppe A: Exkursion
+
+Daten nach Gruppe selektieren, dann r's summary-Funktion auf Daten anwenden und in eine csv-Datei exportieren.
+
+```{r DeskriptiveStatistikA}
+df_kim_exk = df_kim[df_kim$ueID == 'Exkursion',]
+sumstat_exk = summary(df_kim_exk)
+write.csv2(sumstat_exk, file = "blersch_diss_analyse_exk.csv") # exportieren
+```
+
+Standardabweichung via der sd-Funktion ausgeben lassen. In diesem Fall habe ich die Werte manuell in die Ergebnistabelle eingefügt.
+
+```{r DeskriptiveStatistikASD}
+sd_interesse_exk = sd(df_kim_exk$Interesse, na.rm=TRUE)
+print(sd_interesse_exk)# Standardabweichung ausgeben
+
+sd_wahfreiheit_exk = sd(df_kim_exk$Wahlfreiheit, na.rm=TRUE)
+sd_druck_exk = sd(df_kim_exk$Druck, na.rm=TRUE)
+sd_kompetenz_exk = sd(df_kim_exk$Kompetenz, na.rm=TRUE)
+sd_zusatz_exk = sd(df_kim_exk$Zusatz, na.rm=TRUE)
+
+print(sd_interesse_exk);print(sd_wahfreiheit_exk);print(sd_druck_exk)
+print(sd_kompetenz_exk) # Ergebnisse ausgeben lassen
+```
+
+## Gruppe B: Satellitenzeitreihe
+
+Hier führen wir das selbe wie bei Gruppe A durch. Mit dem Unterschied, dass wir die Sus selektieren, die an den Satellitenzeitreihen (also Gruppe B) mitgearbeitet haben.
+
+```{r DeskriptiveStatistikB}
+df_kim_szr = df_kim[df_kim$ueID == 'Satellitenzeitreihe',]
+sumstat_szr = summary(df_kim_szr)
+write.csv2(sumstat_szr, file = "blersch_diss_analyse_szr.csv") # exportieren
+```
+
+```{r DeskriptiveStatistikBSD, include=TRUE}
+sd_interesse_szr = sd(df_kim_szr$Interesse, na.rm=TRUE) # Standardabweichung ausgeben
+sd_wahfreiheit_szr = sd(df_kim_szr$Wahlfreiheit, na.rm=TRUE)
+sd_druck_szr = sd(df_kim_szr$Druck, na.rm=TRUE)
+sd_kompetenz_szr = sd(df_kim_szr$Kompetenz, na.rm=TRUE)
+sd_zusatz_szr = sd(df_kim_szr$Zusatz, na.rm=TRUE)
+
+# Ergebnisse ausgeben lassen
+print(sd_interesse_szr);print(sd_wahfreiheit_szr);print(sd_druck_szr);print(sd_kompetenz_szr) 
+```
+
+# Visualisierung
+
+## Daten/Tabelle für Boxplot vorbereiten
+
+```{r VisualisierungVorbereiten, include=TRUE}
+df_kim_kurz = df_kim[1:8]     # bis Kompetenz
+data = melt(df_kim_kurz)      # Neues 'long format' für gruppiertes Boxplot
+# Spalten umbenennen, dass Boxplot-Achsen gut lesbar sind
+colnames(data)[2] = "Gruppe"; colnames(data)[5] = "KIM"; colnames(data)[6] = "Likert" 
+```
+
+## Boxplot erstellen
+
+Vorlage aus: <https://r-graph-gallery.com/265-grouped-boxplot-with-ggplot2.html>
+
+```{r Visualisierung, include=TRUE}
+#| message: false
+#| warning: false
+
+ggplot(data, aes(x=KIM, y=Likert, fill=Gruppe)) +                                       
+  geom_boxplot(alpha=0.75) +    # hier bezieht sich alpha auf die Transparenz der Farbe
+  ylim(1, 5) +
+  scale_fill_manual(values=c("#252653","#FFC50B")) +       # Farbgebung
+  theme_bw() +
+  theme(legend.position="bottom", plot.title = element_text(size=11)) +
+  xlab("KIM Bereiche") +
+  ylab("Likert Skala")
+```

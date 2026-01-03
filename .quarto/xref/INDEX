@@ -1,0 +1,17 @@
+{
+  "about.qmd": {
+    "about.html": "39b70203",
+    "about.tex": "e1e060d4"
+  },
+  "blersch_KIM_analyse_20260102_website.qmd": {
+    "blersch_KIM_analyse_20260102_website.html": "240d83c9",
+    "blersch_KIM_analyse_20260102_website.tex": "b4929cc0"
+  },
+  "index.qmd": {
+    "index.html": "63171aae"
+  },
+  "theoriePraxis.qmd": {
+    "theoriePraxis.html": "532721d1",
+    "theoriePraxis.tex": "ccff0eb1"
+  }
+}

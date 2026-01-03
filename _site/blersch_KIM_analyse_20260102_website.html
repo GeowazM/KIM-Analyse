@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Blersch, Mario">
+
+<title>KIM-Analyse – Auswertung der Kurzskala intrinsische Motivation (KIM)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-051849a2a1e0f68eed7367b8dc269a5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-24772959a0e306aba8d7698078628ce7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-051849a2a1e0f68eed7367b8dc269a5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Auswertung der Kurzskala intrinsische Motivation (KIM)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Hintergrund</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./blersch_KIM_analyse_20260102_website.html" aria-current="page"> 
+<span class="menu-text">KIM-Analyse</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./theoriePraxis.html"> 
+<span class="menu-text">Theorie und Praxis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Über die Autoren</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/GeowazM">
+            Source Code
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link active" data-scroll-target="#vorbereitung">Vorbereitung</a>
+  <ul class="collapse">
+  <li><a href="#packages-importieren" id="toc-packages-importieren" class="nav-link" data-scroll-target="#packages-importieren">Packages importieren</a></li>
+  <li><a href="#arbeitsbereich-vorbereiten" id="toc-arbeitsbereich-vorbereiten" class="nav-link" data-scroll-target="#arbeitsbereich-vorbereiten">Arbeitsbereich vorbereiten</a></li>
+  <li><a href="#daten-importieren-und-vorbereiten" id="toc-daten-importieren-und-vorbereiten" class="nav-link" data-scroll-target="#daten-importieren-und-vorbereiten">Daten importieren und vorbereiten</a></li>
+  </ul></li>
+  <li><a href="#reliabilität-prüfen-cronbachs-alpha" id="toc-reliabilität-prüfen-cronbachs-alpha" class="nav-link" data-scroll-target="#reliabilität-prüfen-cronbachs-alpha">Reliabilität prüfen (Cronbachs alpha)</a>
+  <ul class="collapse">
+  <li><a href="#gruppe-a" id="toc-gruppe-a" class="nav-link" data-scroll-target="#gruppe-a">Gruppe A</a></li>
+  <li><a href="#gruppe-b" id="toc-gruppe-b" class="nav-link" data-scroll-target="#gruppe-b">Gruppe B</a></li>
+  <li><a href="#skalenwerte-bilden" id="toc-skalenwerte-bilden" class="nav-link" data-scroll-target="#skalenwerte-bilden">Skalenwerte bilden</a></li>
+  </ul></li>
+  <li><a href="#deskriptive-statistik-für-die-kim" id="toc-deskriptive-statistik-für-die-kim" class="nav-link" data-scroll-target="#deskriptive-statistik-für-die-kim">Deskriptive Statistik für die KIM</a>
+  <ul class="collapse">
+  <li><a href="#gruppe-a-exkursion" id="toc-gruppe-a-exkursion" class="nav-link" data-scroll-target="#gruppe-a-exkursion">Gruppe A: Exkursion</a></li>
+  <li><a href="#gruppe-b-satellitenzeitreihe" id="toc-gruppe-b-satellitenzeitreihe" class="nav-link" data-scroll-target="#gruppe-b-satellitenzeitreihe">Gruppe B: Satellitenzeitreihe</a></li>
+  </ul></li>
+  <li><a href="#visualisierung" id="toc-visualisierung" class="nav-link" data-scroll-target="#visualisierung">Visualisierung</a>
+  <ul class="collapse">
+  <li><a href="#datentabelle-für-boxplot-vorbereiten" id="toc-datentabelle-für-boxplot-vorbereiten" class="nav-link" data-scroll-target="#datentabelle-für-boxplot-vorbereiten">Daten/Tabelle für Boxplot vorbereiten</a></li>
+  <li><a href="#boxplot-erstellen" id="toc-boxplot-erstellen" class="nav-link" data-scroll-target="#boxplot-erstellen">Boxplot erstellen</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="blersch_KIM_analyse_20260102_website.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">KIM-Analyse</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Blersch, Mario </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="vorbereitung" class="level1">
+<h1>Vorbereitung</h1>
+<section id="packages-importieren" class="level2">
+<h2 class="anchored" data-anchor-id="packages-importieren">Packages importieren</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)                                                  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Vorsicht: Die Funktion alpha gibt es sowohl im Paket <code>psych</code> als auch im Paket <code>ggplot2</code>. Hier kann es leicht zu Konflikten kommen. Ein klarer Verweis zur alpha-Funktion in <code>psych</code> findet sich im entsprechenden Code-Block weiter unten.</p>
+</section>
+<section id="arbeitsbereich-vorbereiten" class="level2">
+<h2 class="anchored" data-anchor-id="arbeitsbereich-vorbereiten">Arbeitsbereich vorbereiten</h2>
+<p>Dir setzen, filename korrekt schreiben und working directory definieren.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file <span class="ot">=</span> <span class="st">'Blersch_KIM_Analyse_pub.csv'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">'Dateipfad: '</span>, file))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Dateipfad: Blersch_KIM_Analyse_pub.csv"</code></pre>
+</div>
+</div>
+</section>
+<section id="daten-importieren-und-vorbereiten" class="level2">
+<h2 class="anchored" data-anchor-id="daten-importieren-und-vorbereiten">Daten importieren und vorbereiten</h2>
+<p>Encoding der zu importierenden CSV-Tabelle beachten: Für deutsche Umlaute bieten sich die Encodings <code>UTF-8</code>, <code>latin1</code> oder <code>ISO-8859-1</code> an.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(file, <span class="at">sep =</span> <span class="st">';'</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fileEncoding =</span> <span class="st">"ISO-8859-1"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(df)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div id="tbl-DatenImportierenII" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-DatenImportierenII-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Import der Daten
+</figcaption>
+<div aria-describedby="tbl-DatenImportierenII-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small">
+<caption>Tab. 1: Import der Daten</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">id</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">sus</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ue.name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">date</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X4</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X6</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X7</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X8</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X9</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X10</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X11</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X12</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X13</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X14</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X15</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X16</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X17</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X18</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X19</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X20</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X22</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X23</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X24</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X25</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X26</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X28</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X29</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X30</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X31</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X32</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X33</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X34</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">be1</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">2.00</td>
+<td style="text-align: left;">wöchentlich</td>
+<td style="text-align: left;">seltener</td>
+<td style="text-align: left;">im Schulbuch. am Computer</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">ja</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">be2</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Feb 25</td>
+<td style="text-align: left;">wöchentlich</td>
+<td style="text-align: left;">seltener</td>
+<td style="text-align: left;">im Schulbuch. mit dem Tablet/Smartphone</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">ja</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">be3</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Feb 25</td>
+<td style="text-align: left;">täglich</td>
+<td style="text-align: left;">seltener</td>
+<td style="text-align: left;">im Schulbuch. am Computer. mit dem Tablet/Smartphone</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">ja</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">be4</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">wöchentlich</td>
+<td style="text-align: left;">monatlich</td>
+<td style="text-align: left;">im Schulbuch. am Computer. mit dem Tablet/Smartphone</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">ja</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">be5</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">wöchentlich</td>
+<td style="text-align: left;">monatlich</td>
+<td style="text-align: left;">im Schulbuch. am Computer. mit dem Tablet/Smartphone</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">ja</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">be6</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Jan 25</td>
+<td style="text-align: left;">wöchentlich</td>
+<td style="text-align: left;">seltener</td>
+<td style="text-align: left;">im Schulbuch. am Computer. mit dem Tablet/Smartphone</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">ja</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df)) {                         <span class="co"># Spalte "gruppe" hinzufügen</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(df<span class="sc">$</span>ue.name[i] <span class="sc">==</span> <span class="st">'exk'</span>){</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df<span class="sc">$</span>gruppe[i] <span class="ot">=</span> <span class="st">"Exkursion"</span>                </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(df<span class="sc">$</span>ue.name[i] <span class="sc">==</span> <span class="st">'szr'</span>) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    df<span class="sc">$</span>gruppe[i] <span class="ot">=</span> <span class="st">"Satellitenzeitreihe"</span>               </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    df<span class="sc">$</span>gruppe[i] <span class="ot">=</span> <span class="st">"Fehler"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}                                     </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># character Einträge der Spalten in factors umwandeln </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>ue.name <span class="ot">=</span> <span class="fu">factor</span>(df<span class="sc">$</span>ue.name, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"exk"</span>, <span class="st">"szr"</span>))                       </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gruppe <span class="ot">=</span> <span class="fu">factor</span>(df<span class="sc">$</span>gruppe, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Exkursion"</span>, <span class="st">"Satellitenzeitreihe"</span>))   </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl an SuS pro Gruppe ausgeben</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">'Gruppe A - Exkursion: n = '</span>, <span class="fu">nrow</span>(df[df<span class="sc">$</span>gruppe <span class="sc">==</span> <span class="st">"Exkursion"</span>,]))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Gruppe A - Exkursion: n = 51"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">'Gruppe B - Satellitenzeitreihe: n = '</span>, <span class="fu">nrow</span>(df[df<span class="sc">$</span>gruppe <span class="sc">==</span> <span class="st">"Satellitenzeitreihe"</span>,])))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Gruppe B - Satellitenzeitreihe: n = 63"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="reliabilität-prüfen-cronbachs-alpha" class="level1">
+<h1>Reliabilität prüfen (Cronbachs alpha)</h1>
+<p>Für die Reliabilitätsprüfung verwenden wir das Paket <code>psych</code>. Die Labels <code>x1</code>, <code>x2</code>, <code>x3</code> usw. entsprichen den Spaltennamen der importierten Tabelle.</p>
+<section id="gruppe-a" class="level2">
+<h2 class="anchored" data-anchor-id="gruppe-a">Gruppe A</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>typ_exk <span class="ot">=</span> df[df<span class="sc">$</span>gruppe <span class="sc">==</span> <span class="st">"Exkursion"</span>,]         <span class="co"># SuS von Gruppe B selektieren</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(head(typ))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Mit der Funktion alpha berechnen wir Cronbachs alpha für die entsprechende KIM Dimension, die aus drei Items besteht. Die “Dimension” Zusatz bezieht sich auf Items außerhalb der KIM und bezogen sich auf Fragen, die auf die Bedienbarkeit der App abzielten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>alpha_interesse <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_exk, <span class="at">select =</span> <span class="fu">c</span>(X1, X5, X13)))    <span class="co"># Interesse</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>alpha_wahlfreiheit <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_exk, <span class="at">select =</span> <span class="fu">c</span>(X3, X9, X15))) <span class="co"># Wahlfreiheit</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>alpha_druck <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_exk, <span class="at">select =</span> <span class="fu">c</span>(X4, X14, X16)))       <span class="co"># Druck</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>alpha_kompetenz <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_exk, <span class="at">select =</span> <span class="fu">c</span>(X7, X8, X11)))    <span class="co"># Kompetenz</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>alpha_zusatz <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_exk, <span class="at">select =</span> <span class="fu">c</span>(X2, X6, X10, X12)))  <span class="co"># Zusatz</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Wir haben Cronbachs alpha berechnet und in Variablen geschrieben. Jetzt erstellen wir einen Dataframe, um eine bessere Übersicht über die Werte zu erhalten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>reliabilitaets_tabelle_exk <span class="ot">=</span> <span class="fu">data.frame</span>(        <span class="co"># Ergebnistabelle erstellen</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Exk_Dimension =</span> <span class="fu">c</span>(<span class="st">"Interesse"</span>, <span class="st">"Wahlfreiheit"</span>, <span class="st">"Druck"</span>, <span class="st">"Kompetenz"</span>, <span class="st">"Zusatz"</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cronbachs_Alpha =</span> <span class="fu">c</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    alpha_interesse<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,            <span class="co"># cronbachs alpha von Interesse</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    alpha_wahlfreiheit<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    alpha_druck<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    alpha_kompetenz<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    alpha_zusatz<span class="sc">$</span>total<span class="sc">$</span>raw_alpha</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(reliabilitaets_tabelle_exk)               <span class="co"># Cronbachs alpha</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Exk_Dimension Cronbachs_Alpha
+1     Interesse       0.8628302
+2  Wahlfreiheit       0.6721685
+3         Druck       0.7050517
+4     Kompetenz       0.7576531
+5        Zusatz       0.7597961</code></pre>
+</div>
+</div>
+</section>
+<section id="gruppe-b" class="level2">
+<h2 class="anchored" data-anchor-id="gruppe-b">Gruppe B</h2>
+<p>Hier führen wir das selbe wie bei Gruppe A durch. Mit dem Unterschied, dass wir die Sus selektieren, die an den Satellitenzeitreihen (also Gruppe B) mitgearbeitet haben.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>typ_szr <span class="ot">=</span> df[df<span class="sc">$</span>gruppe <span class="sc">==</span> <span class="st">"Satellitenzeitreihe"</span>,]   <span class="co"># SuS von Gruppe B selektieren</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(head(typ))</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>alpha_interesse <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_szr, <span class="at">select =</span> <span class="fu">c</span>(X1, X5, X13)))    <span class="co"># Interesse </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>alpha_wahlfreiheit <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_szr, <span class="at">select =</span> <span class="fu">c</span>(X3, X9, X15))) <span class="co"># Wahlfreiheit</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>alpha_druck <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_szr, <span class="at">select =</span> <span class="fu">c</span>(X4, X14, X16)))       <span class="co"># Druck</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>alpha_kompetenz <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_szr, <span class="at">select =</span> <span class="fu">c</span>(X7, X8, X11)))    <span class="co"># Kompetenz</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>alpha_zusatz <span class="ot">=</span> psych<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">subset</span>(typ_szr, <span class="at">select =</span> <span class="fu">c</span>(X2, X6, X10, X12)))  <span class="co"># Zusatz</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Erneut eine Tabelle zur besseren Übersicht.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>reliabilitaets_tabelle_szr <span class="ot">=</span> <span class="fu">data.frame</span>(            <span class="co"># Ergebnistabelle erstellen</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Szr_Dimension =</span> <span class="fu">c</span>(<span class="st">"Interesse"</span>, <span class="st">"Wahlfreiheit"</span>, <span class="st">"Druck"</span>, <span class="st">"Kompetenz"</span>, <span class="st">"Zusatz"</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cronbachs_Alpha =</span> <span class="fu">c</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    alpha_interesse<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,                <span class="co"># cronbachs alpha von Interesse</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    alpha_wahlfreiheit<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    alpha_druck<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    alpha_kompetenz<span class="sc">$</span>total<span class="sc">$</span>raw_alpha,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    alpha_zusatz<span class="sc">$</span>total<span class="sc">$</span>raw_alpha</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(reliabilitaets_tabelle_szr)                   <span class="co"># Cronbachs alpha</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Szr_Dimension Cronbachs_Alpha
+1     Interesse       0.7606274
+2  Wahlfreiheit       0.8334994
+3         Druck       0.7615383
+4     Kompetenz       0.8133524
+5        Zusatz       0.7471812</code></pre>
+</div>
+</div>
+</section>
+<section id="skalenwerte-bilden" class="level2">
+<h2 class="anchored" data-anchor-id="skalenwerte-bilden">Skalenwerte bilden</h2>
+<p>Wenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.</p>
+<p>In unserem Fall ist keine eine Um- oder REkodierung notwendig. Der Skalenwert wird pro Schülerin und Schüler berechnet, weshalb die Zugehörigkeit zur Gruppe hier noch keine Rolle spielt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>skalenwert_interesse <span class="ot">=</span> <span class="fu">rowMeans</span>(df[, <span class="fu">c</span>(<span class="st">"X1"</span>, <span class="st">"X5"</span>, <span class="st">"X13"</span>)])     <span class="co"># Interesse</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>skalenwert_wahlfreiheit <span class="ot">=</span> <span class="fu">rowMeans</span>(df[, <span class="fu">c</span>(<span class="st">"X3"</span>, <span class="st">"X9"</span>, <span class="st">"X15"</span>)])  <span class="co"># Wahlfreiheit</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>skalenwert_druck <span class="ot">=</span> <span class="fu">rowMeans</span>(df[, <span class="fu">c</span>(<span class="st">"X4"</span>, <span class="st">"X14"</span>, <span class="st">"X16"</span>)])        <span class="co"># Druck</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>skalenwert_kompetenz <span class="ot">=</span> <span class="fu">rowMeans</span>(df[, <span class="fu">c</span>(<span class="st">"X7"</span>, <span class="st">"X8"</span>, <span class="st">"X11"</span>)])     <span class="co"># Kompetenz</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>skalenwert_zusatz <span class="ot">=</span> <span class="fu">rowMeans</span>(df[, <span class="fu">c</span>(<span class="st">"X2"</span>, <span class="st">"X6"</span>, <span class="st">"X10"</span>, <span class="st">"X12"</span>)]) <span class="co"># Zusatz</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>df_kim <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">susID =</span> df<span class="sc">$</span>sus,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ueID =</span> df<span class="sc">$</span>gruppe,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ueName =</span> df<span class="sc">$</span>ue.name,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> df<span class="sc">$</span>date,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Interesse =</span> skalenwert_interesse,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Wahlfreiheit =</span> skalenwert_wahlfreiheit,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Druck =</span> skalenwert_druck,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kompetenz =</span> skalenwert_kompetenz,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Zusatz =</span> skalenwert_zusatz</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>)                                             <span class="co"># merge to a data.frame</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">'n = '</span>, <span class="fu">nrow</span>(df_kim)))           <span class="co"># print report</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "n = 114"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-SkalenwerteBildenI" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-SkalenwerteBildenI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Skalenwerte bilden
+</figcaption>
+<div aria-describedby="tbl-SkalenwerteBildenI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small">
+<caption>Tab. 2: Skalenwerte</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">susID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ueID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ueName</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">date</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Interesse</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Wahlfreiheit</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Druck</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Kompetenz</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Zusatz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">be1</td>
+<td style="text-align: left;">Exkursion</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">4.000000</td>
+<td style="text-align: right;">2.666667</td>
+<td style="text-align: right;">1.000000</td>
+<td style="text-align: right;">4.000000</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">be2</td>
+<td style="text-align: left;">Exkursion</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">3.333333</td>
+<td style="text-align: right;">4.333333</td>
+<td style="text-align: right;">1.000000</td>
+<td style="text-align: right;">4.666667</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">be3</td>
+<td style="text-align: left;">Exkursion</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">2.000000</td>
+<td style="text-align: right;">4.333333</td>
+<td style="text-align: right;">1.333333</td>
+<td style="text-align: right;">3.333333</td>
+<td style="text-align: right;">3.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">be4</td>
+<td style="text-align: left;">Exkursion</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">4.666667</td>
+<td style="text-align: right;">2.000000</td>
+<td style="text-align: right;">2.000000</td>
+<td style="text-align: right;">4.666667</td>
+<td style="text-align: right;">3.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">be5</td>
+<td style="text-align: left;">Exkursion</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">3.333333</td>
+<td style="text-align: right;">3.000000</td>
+<td style="text-align: right;">1.666667</td>
+<td style="text-align: right;">3.666667</td>
+<td style="text-align: right;">2.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">be6</td>
+<td style="text-align: left;">Exkursion</td>
+<td style="text-align: left;">exk</td>
+<td style="text-align: left;">20.09.2022</td>
+<td style="text-align: right;">2.666667</td>
+<td style="text-align: right;">4.000000</td>
+<td style="text-align: right;">1.333333</td>
+<td style="text-align: right;">4.666667</td>
+<td style="text-align: right;">2.50</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="deskriptive-statistik-für-die-kim" class="level1">
+<h1>Deskriptive Statistik für die KIM</h1>
+<p>Hier werden Werte der desktiptiven Statistik wie bei Wilde et al.&nbsp;(2009) und Keller et al.&nbsp;(2024) berechnet. Dazu zählen der Mittelwert, der Median, die Standardabweichung (sd), die Quartile und die Differenz der Quartile.</p>
+<section id="gruppe-a-exkursion" class="level2">
+<h2 class="anchored" data-anchor-id="gruppe-a-exkursion">Gruppe A: Exkursion</h2>
+<p>Daten nach Gruppe selektieren, dann r’s summary-Funktion auf Daten anwenden und in eine csv-Datei exportieren.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_kim_exk <span class="ot">=</span> df_kim[df_kim<span class="sc">$</span>ueID <span class="sc">==</span> <span class="st">'Exkursion'</span>,]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sumstat_exk <span class="ot">=</span> <span class="fu">summary</span>(df_kim_exk)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(sumstat_exk, <span class="at">file =</span> <span class="st">"blersch_diss_analyse_exk.csv"</span>) <span class="co"># exportieren</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Standardabweichung via der sd-Funktion ausgeben lassen. In diesem Fall habe ich die Werte manuell in die Ergebnistabelle eingefügt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sd_interesse_exk <span class="ot">=</span> <span class="fu">sd</span>(df_kim_exk<span class="sc">$</span>Interesse, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sd_interesse_exk)<span class="co"># Standardabweichung ausgeben</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8728174</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sd_wahfreiheit_exk <span class="ot">=</span> <span class="fu">sd</span>(df_kim_exk<span class="sc">$</span>Wahlfreiheit, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sd_druck_exk <span class="ot">=</span> <span class="fu">sd</span>(df_kim_exk<span class="sc">$</span>Druck, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sd_kompetenz_exk <span class="ot">=</span> <span class="fu">sd</span>(df_kim_exk<span class="sc">$</span>Kompetenz, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>sd_zusatz_exk <span class="ot">=</span> <span class="fu">sd</span>(df_kim_exk<span class="sc">$</span>Zusatz, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sd_interesse_exk);<span class="fu">print</span>(sd_wahfreiheit_exk);<span class="fu">print</span>(sd_druck_exk)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8728174</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.027678</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8441475</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sd_kompetenz_exk) <span class="co"># Ergebnisse ausgeben lassen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8164966</code></pre>
+</div>
+</div>
+</section>
+<section id="gruppe-b-satellitenzeitreihe" class="level2">
+<h2 class="anchored" data-anchor-id="gruppe-b-satellitenzeitreihe">Gruppe B: Satellitenzeitreihe</h2>
+<p>Hier führen wir das selbe wie bei Gruppe A durch. Mit dem Unterschied, dass wir die Sus selektieren, die an den Satellitenzeitreihen (also Gruppe B) mitgearbeitet haben.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_kim_szr <span class="ot">=</span> df_kim[df_kim<span class="sc">$</span>ueID <span class="sc">==</span> <span class="st">'Satellitenzeitreihe'</span>,]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sumstat_szr <span class="ot">=</span> <span class="fu">summary</span>(df_kim_szr)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(sumstat_szr, <span class="at">file =</span> <span class="st">"blersch_diss_analyse_szr.csv"</span>) <span class="co"># exportieren</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sd_interesse_szr <span class="ot">=</span> <span class="fu">sd</span>(df_kim_szr<span class="sc">$</span>Interesse, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co"># Standardabweichung ausgeben</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sd_wahfreiheit_szr <span class="ot">=</span> <span class="fu">sd</span>(df_kim_szr<span class="sc">$</span>Wahlfreiheit, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>sd_druck_szr <span class="ot">=</span> <span class="fu">sd</span>(df_kim_szr<span class="sc">$</span>Druck, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>sd_kompetenz_szr <span class="ot">=</span> <span class="fu">sd</span>(df_kim_szr<span class="sc">$</span>Kompetenz, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>sd_zusatz_szr <span class="ot">=</span> <span class="fu">sd</span>(df_kim_szr<span class="sc">$</span>Zusatz, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ergebnisse ausgeben lassen</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sd_interesse_szr);<span class="fu">print</span>(sd_wahfreiheit_szr);<span class="fu">print</span>(sd_druck_szr);<span class="fu">print</span>(sd_kompetenz_szr) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8708377</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.04036</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9248132</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9269708</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="visualisierung" class="level1">
+<h1>Visualisierung</h1>
+<section id="datentabelle-für-boxplot-vorbereiten" class="level2">
+<h2 class="anchored" data-anchor-id="datentabelle-für-boxplot-vorbereiten">Daten/Tabelle für Boxplot vorbereiten</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_kim_kurz <span class="ot">=</span> df_kim[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>]     <span class="co"># bis Kompetenz</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">melt</span>(df_kim_kurz)      <span class="co"># Neues 'long format' für gruppiertes Boxplot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using susID, ueID, ueName, date as id variables</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spalten umbenennen, dass Boxplot-Achsen gut lesbar sind</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data)[<span class="dv">2</span>] <span class="ot">=</span> <span class="st">"Gruppe"</span>; <span class="fu">colnames</span>(data)[<span class="dv">5</span>] <span class="ot">=</span> <span class="st">"KIM"</span>; <span class="fu">colnames</span>(data)[<span class="dv">6</span>] <span class="ot">=</span> <span class="st">"Likert"</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="boxplot-erstellen" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot-erstellen">Boxplot erstellen</h2>
+<p>Vorlage aus: <a href="https://r-graph-gallery.com/265-grouped-boxplot-with-ggplot2.html" class="uri">https://r-graph-gallery.com/265-grouped-boxplot-with-ggplot2.html</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>KIM, <span class="at">y=</span>Likert, <span class="at">fill=</span>Gruppe)) <span class="sc">+</span>                                       </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.75</span>) <span class="sc">+</span>    <span class="co"># hier bezieht sich alpha auf die Transparenz der Farbe</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"#252653"</span>,<span class="st">"#FFC50B"</span>)) <span class="sc">+</span>       <span class="co"># Farbgebung</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>)) <span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"KIM Bereiche"</span>) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Likert Skala"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="blersch_KIM_analyse_20260102_website_files/figure-html/Visualisierung-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>CC BY-SA 4.0</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

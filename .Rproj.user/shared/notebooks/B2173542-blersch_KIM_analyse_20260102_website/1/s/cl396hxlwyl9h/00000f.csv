@@ -1,0 +1,8 @@
+"0","file_name = 'Blersch_KIM_Analyse_pub.csv'"
+"0","file = file_name"
+"0","# Zum Testen:"
+"0","print(paste0('Dateipfad: ', file))"
+"1","[1]"
+"1"," ""Dateipfad: Blersch_KIM_Analyse_pub.csv"""
+"1","
+"

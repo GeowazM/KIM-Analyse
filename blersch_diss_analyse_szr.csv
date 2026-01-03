@@ -1,0 +1,8 @@
+"";"   susID";"                 ueID";"ueName";"    date";"  Interesse";" Wahlfreiheit";"    Druck";"  Kompetenz";"    Zusatz"
+"";"Length:63         ";"Exkursion          : 0  ";"exk: 0  ";"Length:63         ";"Min.   :1.333  ";"Min.   :1.000  ";"Min.   :1.000  ";"Min.   :1.000  ";"Min.   :1.250  "
+"";"Class :character  ";"Satellitenzeitreihe:63  ";"szr:63  ";"Class :character  ";"1st Qu.:3.000  ";"1st Qu.:2.667  ";"1st Qu.:1.333  ";"1st Qu.:3.083  ";"1st Qu.:3.000  "
+"";"Mode  :character  ";NA;NA;"Mode  :character  ";"Median :3.333  ";"Median :3.333  ";"Median :1.667  ";"Median :3.667  ";"Median :3.750  "
+"";NA;NA;NA;NA;"Mean   :3.425  ";"Mean   :3.296  ";"Mean   :1.892  ";"Mean   :3.645  ";"Mean   :3.524  "
+"";NA;NA;NA;NA;"3rd Qu.:4.000  ";"3rd Qu.:4.000  ";"3rd Qu.:2.333  ";"3rd Qu.:4.250  ";"3rd Qu.:4.000  "
+"";NA;NA;NA;NA;"Max.   :5.000  ";"Max.   :5.000  ";"Max.   :5.000  ";"Max.   :5.000  ";"Max.   :5.000  "
+"";NA;NA;NA;NA;"NA's   :1  ";"NA's   :1  ";"NA's   :1  ";"NA's   :1  ";"NA's   :1  "

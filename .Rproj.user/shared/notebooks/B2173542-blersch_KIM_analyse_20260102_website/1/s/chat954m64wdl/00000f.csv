@@ -1,0 +1,11 @@
+"0","#| label: tbl-DatenImportierenII"
+"0","#| tbl-cap: ""Import der Daten"""
+"0","#| echo: false"
+"0","#| message: false"
+"0","#| warning: false"
+"0",""
+"0","kable(head(df), caption = ""Tab. 1: Import der Daten"") %>%"
+"0","  kable_styling(bootstrap_options = c(""striped"", ""hover"", ""condensed""), full_width = F)"
+"2","Fehler in kable(head(df), caption = ""Tab. 1: Import der Daten"") %>% kable_styling(bootstrap_options = c(""striped"",  : 
+  konnte Funktion ""%>%"" nicht finden
+"

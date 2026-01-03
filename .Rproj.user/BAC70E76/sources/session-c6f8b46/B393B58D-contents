@@ -1,0 +1,30 @@
+---
+title: "Theorie und Praxis"
+author: "Blersch, Mario"
+format: 
+  html: default
+  pdf: default
+editor: visual
+execute: 
+  echo: true
+---
+
+# Reliabilität prüfen mit Cronbachs alpha
+
+-   Streiner, D. L. (2003): Starting at the Beginning: An Introduction to Coefficient Alpha and Internal Consistency, Journal of Personality Assessment, 80:1, S. 99-103. doi: <https://doi.org/10.1207/S15327752JPA8001_18>
+
+Eine praktische Anleitung dazu findet sich hier: <https://bjoernwalther.com/cronbachs-alpha-in-r-berechnen/>.
+
+{{< video https://youtu.be/1bz8Gyo-PGg?si=Iv2WdWPT6pqXzPkn >}}
+
+# Skalenwerte bilden
+
+Eine praktische Anleitung dazu findet sich hier: <https://bjoernwalther.com/skalen-aus-items-in-r-bilden/>.
+
+{{< video https://youtu.be/4uLRK0HI0uE?si=bWMN5nl7CNRhKn1R >}}
+
+Wenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.
+
+# Deskriptive Statistik
+
+Im Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der

@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "theoriePraxis.html",
+    "href": "theoriePraxis.html",
+    "title": "Theorie und Praxis",
+    "section": "",
+    "text": "Reliabilität prüfen mit Cronbachs alpha\n\nStreiner, D. L. (2003): Starting at the Beginning: An Introduction to Coefficient Alpha and Internal Consistency, Journal of Personality Assessment, 80:1, S. 99-103. doi: https://doi.org/10.1207/S15327752JPA8001_18\n\nEine praktische Anleitung dazu findet sich hier: https://bjoernwalther.com/cronbachs-alpha-in-r-berechnen/.\n\n\n\nSkalenwerte bilden\nEine praktische Anleitung dazu findet sich hier: https://bjoernwalther.com/skalen-aus-items-in-r-bilden/.\n\nWenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.\n\n\nDeskriptive Statistik\nIm Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der…\n\n\nVisualisierung\nQuelle: https://r-graph-gallery.com/89-box-and-scatter-plot-with-ggplot2.html"
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html",
+    "href": "blersch_KIM_analyse_20260102_website.html",
+    "title": "KIM-Analyse",
+    "section": "",
+    "text": "library(reshape)\nlibrary(ggplot2)\nlibrary(psych)                                                  \n\nVorsicht: Die Funktion alpha gibt es sowohl im Paket psych als auch im Paket ggplot2. Hier kann es leicht zu Konflikten kommen. Ein klarer Verweis zur alpha-Funktion in psych findet sich im entsprechenden Code-Block weiter unten.\n\n\n\nDir setzen, filename korrekt schreiben und working directory definieren.\n\nfile = 'Blersch_KIM_Analyse_pub.csv'\nprint(paste0('Dateipfad: ', file))\n\n[1] \"Dateipfad: Blersch_KIM_Analyse_pub.csv\"\n\n\n\n\n\nEncoding der zu importierenden CSV-Tabelle beachten: Für deutsche Umlaute bieten sich die Encodings UTF-8, latin1 oder ISO-8859-1 an.\n\ndf &lt;- read.csv(file, sep = ';', header = TRUE, fileEncoding = \"ISO-8859-1\")\n#head(df)\n\n\n\n\n\nTable 1: Import der Daten\n\n\n\n\nTab. 1: Import der Daten\n\n\nid\nsus\nue.name\ndate\nX1\nX2\nX3\nX4\nX5\nX6\nX7\nX8\nX9\nX10\nX11\nX12\nX13\nX14\nX15\nX16\nX17\nX18\nX19\nX20\nX22\nX23\nX24\nX25\nX26\nX28\nX29\nX30\nX31\nX32\nX33\nX34\nX\n\n\n\n\n1\nbe1\nexk\n20.09.2022\n4\n3\n5\n1\n4\n4\n4\n4\n0\n1\n4\n4\n4\n1\n3\n1\n\n5\n5\n5\n4\n2\n4\n4\n2.00\nwöchentlich\nseltener\nim Schulbuch. am Computer\n18\nm\n5\nja\nNA\n\n\n2\nbe2\nexk\n20.09.2022\n3\n3\n5\n1\n3\n3\n5\n5\n4\n3\n4\n3\n4\n1\n4\n1\n\n4\n5\n5\n5\n1\n3\n3\nFeb 25\nwöchentlich\nseltener\nim Schulbuch. mit dem Tablet/Smartphone\n18\nm\n5\nja\nNA\n\n\n3\nbe3\nexk\n20.09.2022\n3\n4\n5\n2\n2\n4\n3\n3\n4\n4\n4\n1\n1\n1\n4\n1\n\n4\n4\n4\n5\n1\n2\n4\nFeb 25\ntäglich\nseltener\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n17\nm\n5\nja\nNA\n\n\n4\nbe4\nexk\n20.09.2022\n4\n3\n4\n1\n5\n5\n4\n5\n1\n4\n5\n1\n5\n4\n1\n1\n\n5\n5\n5\n5\n1\n4\n5\n1.00\nwöchentlich\nmonatlich\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n18\nk\n5\nja\nNA\n\n\n5\nbe5\nexk\n20.09.2022\n4\n2\n3\n1\n3\n3\n4\n4\n2\n2\n3\n3\n3\n3\n4\n1\n\n5\n4\n4\n3\n3\n4\n2\n\nwöchentlich\nmonatlich\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n17\nm\n5\nja\nNA\n\n\n6\nbe6\nexk\n20.09.2022\n3\n2\n5\n1\n3\n4\n5\n5\n4\n2\n4\n2\n2\n1\n3\n2\n\n5\n5\n5\n5\n1\n5\n2\nJan 25\nwöchentlich\nseltener\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n17\nk\n5\nja\nNA\n\n\n\n\n\n\n\n\n\nfor (i in 1:nrow(df)) {                         # Spalte \"gruppe\" hinzufügen\n  if(df$ue.name[i] == 'exk'){\n    df$gruppe[i] = \"Exkursion\"                \n  } else if(df$ue.name[i] == 'szr') {\n    df$gruppe[i] = \"Satellitenzeitreihe\"               \n  } else {\n    df$gruppe[i] = \"Fehler\"\n  }\n}                                     \n\n# character Einträge der Spalten in factors umwandeln \ndf$ue.name = factor(df$ue.name, levels = c(\"exk\", \"szr\"))                       \ndf$gruppe = factor(df$gruppe, levels = c(\"Exkursion\", \"Satellitenzeitreihe\"))   \n\n# Anzahl an SuS pro Gruppe ausgeben\nprint(paste0('Gruppe A - Exkursion: n = ', nrow(df[df$gruppe == \"Exkursion\",]))) \n\n[1] \"Gruppe A - Exkursion: n = 51\"\n\nprint(paste0('Gruppe B - Satellitenzeitreihe: n = ', nrow(df[df$gruppe == \"Satellitenzeitreihe\",])))\n\n[1] \"Gruppe B - Satellitenzeitreihe: n = 63\""
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#packages-importieren",
+    "href": "blersch_KIM_analyse_20260102_website.html#packages-importieren",
+    "title": "KIM-Analyse",
+    "section": "",
+    "text": "library(reshape)\nlibrary(ggplot2)\nlibrary(psych)                                                  \n\nVorsicht: Die Funktion alpha gibt es sowohl im Paket psych als auch im Paket ggplot2. Hier kann es leicht zu Konflikten kommen. Ein klarer Verweis zur alpha-Funktion in psych findet sich im entsprechenden Code-Block weiter unten."
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#arbeitsbereich-vorbereiten",
+    "href": "blersch_KIM_analyse_20260102_website.html#arbeitsbereich-vorbereiten",
+    "title": "KIM-Analyse",
+    "section": "",
+    "text": "Dir setzen, filename korrekt schreiben und working directory definieren.\n\nfile = 'Blersch_KIM_Analyse_pub.csv'\nprint(paste0('Dateipfad: ', file))\n\n[1] \"Dateipfad: Blersch_KIM_Analyse_pub.csv\""
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#daten-importieren-und-vorbereiten",
+    "href": "blersch_KIM_analyse_20260102_website.html#daten-importieren-und-vorbereiten",
+    "title": "KIM-Analyse",
+    "section": "",
+    "text": "Encoding der zu importierenden CSV-Tabelle beachten: Für deutsche Umlaute bieten sich die Encodings UTF-8, latin1 oder ISO-8859-1 an.\n\ndf &lt;- read.csv(file, sep = ';', header = TRUE, fileEncoding = \"ISO-8859-1\")\n#head(df)\n\n\n\n\n\nTable 1: Import der Daten\n\n\n\n\nTab. 1: Import der Daten\n\n\nid\nsus\nue.name\ndate\nX1\nX2\nX3\nX4\nX5\nX6\nX7\nX8\nX9\nX10\nX11\nX12\nX13\nX14\nX15\nX16\nX17\nX18\nX19\nX20\nX22\nX23\nX24\nX25\nX26\nX28\nX29\nX30\nX31\nX32\nX33\nX34\nX\n\n\n\n\n1\nbe1\nexk\n20.09.2022\n4\n3\n5\n1\n4\n4\n4\n4\n0\n1\n4\n4\n4\n1\n3\n1\n\n5\n5\n5\n4\n2\n4\n4\n2.00\nwöchentlich\nseltener\nim Schulbuch. am Computer\n18\nm\n5\nja\nNA\n\n\n2\nbe2\nexk\n20.09.2022\n3\n3\n5\n1\n3\n3\n5\n5\n4\n3\n4\n3\n4\n1\n4\n1\n\n4\n5\n5\n5\n1\n3\n3\nFeb 25\nwöchentlich\nseltener\nim Schulbuch. mit dem Tablet/Smartphone\n18\nm\n5\nja\nNA\n\n\n3\nbe3\nexk\n20.09.2022\n3\n4\n5\n2\n2\n4\n3\n3\n4\n4\n4\n1\n1\n1\n4\n1\n\n4\n4\n4\n5\n1\n2\n4\nFeb 25\ntäglich\nseltener\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n17\nm\n5\nja\nNA\n\n\n4\nbe4\nexk\n20.09.2022\n4\n3\n4\n1\n5\n5\n4\n5\n1\n4\n5\n1\n5\n4\n1\n1\n\n5\n5\n5\n5\n1\n4\n5\n1.00\nwöchentlich\nmonatlich\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n18\nk\n5\nja\nNA\n\n\n5\nbe5\nexk\n20.09.2022\n4\n2\n3\n1\n3\n3\n4\n4\n2\n2\n3\n3\n3\n3\n4\n1\n\n5\n4\n4\n3\n3\n4\n2\n\nwöchentlich\nmonatlich\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n17\nm\n5\nja\nNA\n\n\n6\nbe6\nexk\n20.09.2022\n3\n2\n5\n1\n3\n4\n5\n5\n4\n2\n4\n2\n2\n1\n3\n2\n\n5\n5\n5\n5\n1\n5\n2\nJan 25\nwöchentlich\nseltener\nim Schulbuch. am Computer. mit dem Tablet/Smartphone\n17\nk\n5\nja\nNA\n\n\n\n\n\n\n\n\n\nfor (i in 1:nrow(df)) {                         # Spalte \"gruppe\" hinzufügen\n  if(df$ue.name[i] == 'exk'){\n    df$gruppe[i] = \"Exkursion\"                \n  } else if(df$ue.name[i] == 'szr') {\n    df$gruppe[i] = \"Satellitenzeitreihe\"               \n  } else {\n    df$gruppe[i] = \"Fehler\"\n  }\n}                                     \n\n# character Einträge der Spalten in factors umwandeln \ndf$ue.name = factor(df$ue.name, levels = c(\"exk\", \"szr\"))                       \ndf$gruppe = factor(df$gruppe, levels = c(\"Exkursion\", \"Satellitenzeitreihe\"))   \n\n# Anzahl an SuS pro Gruppe ausgeben\nprint(paste0('Gruppe A - Exkursion: n = ', nrow(df[df$gruppe == \"Exkursion\",]))) \n\n[1] \"Gruppe A - Exkursion: n = 51\"\n\nprint(paste0('Gruppe B - Satellitenzeitreihe: n = ', nrow(df[df$gruppe == \"Satellitenzeitreihe\",])))\n\n[1] \"Gruppe B - Satellitenzeitreihe: n = 63\""
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#gruppe-a",
+    "href": "blersch_KIM_analyse_20260102_website.html#gruppe-a",
+    "title": "KIM-Analyse",
+    "section": "Gruppe A",
+    "text": "Gruppe A\n\ntyp_exk = df[df$gruppe == \"Exkursion\",]         # SuS von Gruppe B selektieren\n#print(head(typ))\n\nMit der Funktion alpha berechnen wir Cronbachs alpha für die entsprechende KIM Dimension, die aus drei Items besteht. Die “Dimension” Zusatz bezieht sich auf Items außerhalb der KIM und bezogen sich auf Fragen, die auf die Bedienbarkeit der App abzielten.\n\nalpha_interesse = psych::alpha(subset(typ_exk, select = c(X1, X5, X13)))    # Interesse\nalpha_wahlfreiheit = psych::alpha(subset(typ_exk, select = c(X3, X9, X15))) # Wahlfreiheit\nalpha_druck = psych::alpha(subset(typ_exk, select = c(X4, X14, X16)))       # Druck\nalpha_kompetenz = psych::alpha(subset(typ_exk, select = c(X7, X8, X11)))    # Kompetenz\nalpha_zusatz = psych::alpha(subset(typ_exk, select = c(X2, X6, X10, X12)))  # Zusatz\n\nWir haben Cronbachs alpha berechnet und in Variablen geschrieben. Jetzt erstellen wir einen Dataframe, um eine bessere Übersicht über die Werte zu erhalten.\n\nreliabilitaets_tabelle_exk = data.frame(        # Ergebnistabelle erstellen\n  Exk_Dimension = c(\"Interesse\", \"Wahlfreiheit\", \"Druck\", \"Kompetenz\", \"Zusatz\"),\n  Cronbachs_Alpha = c(\n    alpha_interesse$total$raw_alpha,            # cronbachs alpha von Interesse\n    alpha_wahlfreiheit$total$raw_alpha,\n    alpha_druck$total$raw_alpha,\n    alpha_kompetenz$total$raw_alpha,\n    alpha_zusatz$total$raw_alpha\n  ))\nprint(reliabilitaets_tabelle_exk)               # Cronbachs alpha\n\n  Exk_Dimension Cronbachs_Alpha\n1     Interesse       0.8628302\n2  Wahlfreiheit       0.6721685\n3         Druck       0.7050517\n4     Kompetenz       0.7576531\n5        Zusatz       0.7597961"
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#gruppe-b",
+    "href": "blersch_KIM_analyse_20260102_website.html#gruppe-b",
+    "title": "KIM-Analyse",
+    "section": "Gruppe B",
+    "text": "Gruppe B\nHier führen wir das selbe wie bei Gruppe A durch. Mit dem Unterschied, dass wir die Sus selektieren, die an den Satellitenzeitreihen (also Gruppe B) mitgearbeitet haben.\n\ntyp_szr = df[df$gruppe == \"Satellitenzeitreihe\",]   # SuS von Gruppe B selektieren\n#print(head(typ))\nalpha_interesse = psych::alpha(subset(typ_szr, select = c(X1, X5, X13)))    # Interesse \nalpha_wahlfreiheit = psych::alpha(subset(typ_szr, select = c(X3, X9, X15))) # Wahlfreiheit\nalpha_druck = psych::alpha(subset(typ_szr, select = c(X4, X14, X16)))       # Druck\nalpha_kompetenz = psych::alpha(subset(typ_szr, select = c(X7, X8, X11)))    # Kompetenz\nalpha_zusatz = psych::alpha(subset(typ_szr, select = c(X2, X6, X10, X12)))  # Zusatz\n\nErneut eine Tabelle zur besseren Übersicht.\n\nreliabilitaets_tabelle_szr = data.frame(            # Ergebnistabelle erstellen\n  Szr_Dimension = c(\"Interesse\", \"Wahlfreiheit\", \"Druck\", \"Kompetenz\", \"Zusatz\"),\n  Cronbachs_Alpha = c(\n    alpha_interesse$total$raw_alpha,                # cronbachs alpha von Interesse\n    alpha_wahlfreiheit$total$raw_alpha,\n    alpha_druck$total$raw_alpha,\n    alpha_kompetenz$total$raw_alpha,\n    alpha_zusatz$total$raw_alpha\n  ))\nprint(reliabilitaets_tabelle_szr)                   # Cronbachs alpha\n\n  Szr_Dimension Cronbachs_Alpha\n1     Interesse       0.7606274\n2  Wahlfreiheit       0.8334994\n3         Druck       0.7615383\n4     Kompetenz       0.8133524\n5        Zusatz       0.7471812"
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#skalenwerte-bilden",
+    "href": "blersch_KIM_analyse_20260102_website.html#skalenwerte-bilden",
+    "title": "KIM-Analyse",
+    "section": "Skalenwerte bilden",
+    "text": "Skalenwerte bilden\nWenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.\nIn unserem Fall ist keine eine Um- oder REkodierung notwendig. Der Skalenwert wird pro Schülerin und Schüler berechnet, weshalb die Zugehörigkeit zur Gruppe hier noch keine Rolle spielt.\n\nskalenwert_interesse = rowMeans(df[, c(\"X1\", \"X5\", \"X13\")])     # Interesse\nskalenwert_wahlfreiheit = rowMeans(df[, c(\"X3\", \"X9\", \"X15\")])  # Wahlfreiheit\nskalenwert_druck = rowMeans(df[, c(\"X4\", \"X14\", \"X16\")])        # Druck\nskalenwert_kompetenz = rowMeans(df[, c(\"X7\", \"X8\", \"X11\")])     # Kompetenz\nskalenwert_zusatz = rowMeans(df[, c(\"X2\", \"X6\", \"X10\", \"X12\")]) # Zusatz\ndf_kim = data.frame(\n  susID = df$sus,\n  ueID = df$gruppe,\n  ueName = df$ue.name,\n  date = df$date,\n  Interesse = skalenwert_interesse,\n  Wahlfreiheit = skalenwert_wahlfreiheit,\n  Druck = skalenwert_druck,\n  Kompetenz = skalenwert_kompetenz,\n  Zusatz = skalenwert_zusatz\n)                                             # merge to a data.frame\n\nprint(paste0('n = ', nrow(df_kim)))           # print report\n\n[1] \"n = 114\"\n\n\n\n\n\n\nTable 2: Skalenwerte bilden\n\n\n\n\nTab. 2: Skalenwerte\n\n\nsusID\nueID\nueName\ndate\nInteresse\nWahlfreiheit\nDruck\nKompetenz\nZusatz\n\n\n\n\nbe1\nExkursion\nexk\n20.09.2022\n4.000000\n2.666667\n1.000000\n4.000000\n3.00\n\n\nbe2\nExkursion\nexk\n20.09.2022\n3.333333\n4.333333\n1.000000\n4.666667\n3.00\n\n\nbe3\nExkursion\nexk\n20.09.2022\n2.000000\n4.333333\n1.333333\n3.333333\n3.25\n\n\nbe4\nExkursion\nexk\n20.09.2022\n4.666667\n2.000000\n2.000000\n4.666667\n3.25\n\n\nbe5\nExkursion\nexk\n20.09.2022\n3.333333\n3.000000\n1.666667\n3.666667\n2.50\n\n\nbe6\nExkursion\nexk\n20.09.2022\n2.666667\n4.000000\n1.333333\n4.666667\n2.50"
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#gruppe-a-exkursion",
+    "href": "blersch_KIM_analyse_20260102_website.html#gruppe-a-exkursion",
+    "title": "KIM-Analyse",
+    "section": "Gruppe A: Exkursion",
+    "text": "Gruppe A: Exkursion\nDaten nach Gruppe selektieren, dann r’s summary-Funktion auf Daten anwenden und in eine csv-Datei exportieren.\n\ndf_kim_exk = df_kim[df_kim$ueID == 'Exkursion',]\nsumstat_exk = summary(df_kim_exk)\nwrite.csv2(sumstat_exk, file = \"blersch_diss_analyse_exk.csv\") # exportieren\n\nStandardabweichung via der sd-Funktion ausgeben lassen. In diesem Fall habe ich die Werte manuell in die Ergebnistabelle eingefügt.\n\nsd_interesse_exk = sd(df_kim_exk$Interesse, na.rm=TRUE)\nprint(sd_interesse_exk)# Standardabweichung ausgeben\n\n[1] 0.8728174\n\nsd_wahfreiheit_exk = sd(df_kim_exk$Wahlfreiheit, na.rm=TRUE)\nsd_druck_exk = sd(df_kim_exk$Druck, na.rm=TRUE)\nsd_kompetenz_exk = sd(df_kim_exk$Kompetenz, na.rm=TRUE)\nsd_zusatz_exk = sd(df_kim_exk$Zusatz, na.rm=TRUE)\n\nprint(sd_interesse_exk);print(sd_wahfreiheit_exk);print(sd_druck_exk)\n\n[1] 0.8728174\n\n\n[1] 1.027678\n\n\n[1] 0.8441475\n\nprint(sd_kompetenz_exk) # Ergebnisse ausgeben lassen\n\n[1] 0.8164966"
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#gruppe-b-satellitenzeitreihe",
+    "href": "blersch_KIM_analyse_20260102_website.html#gruppe-b-satellitenzeitreihe",
+    "title": "KIM-Analyse",
+    "section": "Gruppe B: Satellitenzeitreihe",
+    "text": "Gruppe B: Satellitenzeitreihe\nHier führen wir das selbe wie bei Gruppe A durch. Mit dem Unterschied, dass wir die Sus selektieren, die an den Satellitenzeitreihen (also Gruppe B) mitgearbeitet haben.\n\ndf_kim_szr = df_kim[df_kim$ueID == 'Satellitenzeitreihe',]\nsumstat_szr = summary(df_kim_szr)\nwrite.csv2(sumstat_szr, file = \"blersch_diss_analyse_szr.csv\") # exportieren\n\n\nsd_interesse_szr = sd(df_kim_szr$Interesse, na.rm=TRUE) # Standardabweichung ausgeben\nsd_wahfreiheit_szr = sd(df_kim_szr$Wahlfreiheit, na.rm=TRUE)\nsd_druck_szr = sd(df_kim_szr$Druck, na.rm=TRUE)\nsd_kompetenz_szr = sd(df_kim_szr$Kompetenz, na.rm=TRUE)\nsd_zusatz_szr = sd(df_kim_szr$Zusatz, na.rm=TRUE)\n\n# Ergebnisse ausgeben lassen\nprint(sd_interesse_szr);print(sd_wahfreiheit_szr);print(sd_druck_szr);print(sd_kompetenz_szr) \n\n[1] 0.8708377\n\n\n[1] 1.04036\n\n\n[1] 0.9248132\n\n\n[1] 0.9269708"
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#datentabelle-für-boxplot-vorbereiten",
+    "href": "blersch_KIM_analyse_20260102_website.html#datentabelle-für-boxplot-vorbereiten",
+    "title": "KIM-Analyse",
+    "section": "Daten/Tabelle für Boxplot vorbereiten",
+    "text": "Daten/Tabelle für Boxplot vorbereiten\n\ndf_kim_kurz = df_kim[1:8]     # bis Kompetenz\ndata = melt(df_kim_kurz)      # Neues 'long format' für gruppiertes Boxplot\n\nUsing susID, ueID, ueName, date as id variables\n\n# Spalten umbenennen, dass Boxplot-Achsen gut lesbar sind\ncolnames(data)[2] = \"Gruppe\"; colnames(data)[5] = \"KIM\"; colnames(data)[6] = \"Likert\""
+  },
+  {
+    "objectID": "blersch_KIM_analyse_20260102_website.html#boxplot-erstellen",
+    "href": "blersch_KIM_analyse_20260102_website.html#boxplot-erstellen",
+    "title": "KIM-Analyse",
+    "section": "Boxplot erstellen",
+    "text": "Boxplot erstellen\nVorlage aus: https://r-graph-gallery.com/265-grouped-boxplot-with-ggplot2.html\n\nggplot(data, aes(x=KIM, y=Likert, fill=Gruppe)) +                                       \n  geom_boxplot(alpha=0.75) +    # hier bezieht sich alpha auf die Transparenz der Farbe\n  ylim(1, 5) +\n  scale_fill_manual(values=c(\"#252653\",\"#FFC50B\")) +       # Farbgebung\n  theme_bw() +\n  theme(legend.position=\"bottom\", plot.title = element_text(size=11)) +\n  xlab(\"KIM Bereiche\") +\n  ylab(\"Likert Skala\")"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Über die Autoren",
+    "section": "",
+    "text": "Blersch, Mario\nKeller, Johannes\nSiegmund, Alexander"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Willkommen",
+    "section": "",
+    "text": "Diese Seite listet die Methodik, die in … angewandt wurde. Dadurch soll im Sinne der DFG die Transparenz und Rerpoduzierbarkeit einer wissenschaftlichen Arbeit gesteigert werden. Darüber hinaus können Daten und Skript in der Hochschullehre eingesetzt werden, um originale Arbeiten behandeln zu können.\n\nKurzskala intrinisische Motivation (KIM)\nIm Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der jeweiligen Unterrichtseinheit mit der Kurzskala intrinsische Motivation (KIM)-Skala nach Wilde et al. (2009) gemessen. Diese KIM-Skala basiert auf dem Intrinsic Motivation Inventory (IMI) erstellte Fragebogen und erfasst Interesse, Kompetenzwahrnehmung und Autonomieerleben der Lernenden in vier Dimensionen (Keller et al. 2024).\nSiehe u.a.:\n\nWilde, M., Bätz, K., Kovaleva, A., & Urhahne, D. (2009). Überprüfung einer Kurzskala intrinsischer Motivation (KIM). Zeitschrift für Didaktik der Naturwissenschaften, 15, 31-45. Oline: https://www.pedocs.de/frontdoor.php?source_opus=31663\nKeller, J., Heger, J., Petersen, M., Blersch, M., Siegmund, A. (2024). Einfluss von Alter, Anzahl mobiler Endgeräte und Festlegung der Interaktionsräume auf die intrinsische Motivation bei App-gestützten Exkursionen mit Satellitenbildern.GW-Unterricht, 176 (4/2024), 35-51. doi: https://doi.org/10.1553/gw-unterricht176s35"
+  }
+]

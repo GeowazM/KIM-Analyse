@@ -1,0 +1,2 @@
+"0","df <- read.csv(file, sep = ';', header = TRUE, fileEncoding = ""ISO-8859-1"")"
+"0","#head(df)"
