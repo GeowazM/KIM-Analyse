@@ -1,0 +1,119 @@
+---
+title: "Paarweise t-tests"
+author: "Blersch, Mario"
+format: 
+  html: default
+  pdf: default
+editor: visual
+---
+
+## Packages importieren
+
+```{r importLibraries}
+#| label: load-packages
+#| message: false
+#| warning: false
+library(dplyr)
+library(readr)
+library(rstatix)  # Für Cohen's d
+library(pwr)      # Für die Stichproben-Berechnung (Power Analysis)
+```
+
+## Daten importieren und vorbereiten
+```{r importData}
+df_new <- read_delim("Blersch_KIM_Analyse_pub_new_bereinigt.csv", delim = ";", show_col_types = FALSE) %>%
+  rename(group = `ue-name`) # Gruppe zur Sicherheit umbenennen
+```
+
+## Skalenwerte bilden
+
+Welche Items gehören zu welcher Skala:
+- skalenwert_interesse = rowMeans(df\[, c("X1", "X5", "X13")\])
+- Interesse skalenwert_wahlfreiheit = rowMeans(df\[, c("X3", "X9", "X15")\]) 
+- Wahlfreiheit skalenwert_druck = rowMeans(df\[, c("X4", "X14", "X16")\]) 
+- Druck skalenwert_kompetenz = rowMeans(df\[, c("X7", "X8", "X11")\]) \# Kompetenz
+
+```{r buildScales}
+df_scales <- df_new %>%
+  rowwise() %>%
+  mutate(
+    kim_interesse = mean(c_across(c("1", "5", "13")), na.rm = TRUE), # Interesse
+    kim_kompetenz = mean(c_across(c("7", "8", "11")), na.rm = TRUE), # Kompetenz
+    kim_wahl = mean(c_across(c("3", "9", "15")), na.rm = TRUE),      # Wahlfreiheit
+    kim_druck = mean(c_across(c("4", "14", "16")), na.rm = TRUE)     # Druck
+  ) %>%
+  ungroup()
+```
+
+
+## Funktion: Paarweise t-test
+Die Funktion nimmt zwei Gruppen und berechnet den t-test [A.] sowie Cohens d [B.] (Effektstärke). Auf Basis des Signifikanzwertes und der Effektstärke wird das "Notwendiges N" [C.] (Power Analysis) abgeleitet. 
+Details zu den Funktionen und deren Parameter innerhalb dieser Funktion kann in den R-packages eingesehen werden.
+
+```{r setGenericFunction}
+# ---------------------------------------------------------
+# Funktion schreiben, die alle Werte (t-Test, d, N) berechnet
+# ---------------------------------------------------------
+analyze_kim_scale <- function(data, variable_name, label) {
+  
+  # A. t-Test berechnen
+  test <- t.test(data[[variable_name]] ~ data$group, var.equal = TRUE)
+  
+  # B. Cohen's d berechnen (dynamisch)
+  formula_d <- as.formula(paste(variable_name, "~ group"))
+  eff_size <- data %>% cohens_d(formula_d, var.equal = TRUE)
+  d_value <- abs(eff_size$effsize) # Betrag nehmen (Richtung egal für Power)
+  
+  # C. Notwendiges N berechnen (Power Analysis) 
+  # Wie viele bräuchte man für Signifikanz (alpha=0.05) bei Power=0.80
+  # Hinweis: Wenn d sehr klein ist (< 0.01), explodiert die Zahl. Wir mit if abgefangen
+  if(d_value > 0.001) {
+    power_calc <- pwr.t.test(d = d_value, sig.level = 0.05, power = 0.80, type = "two.sample")
+    n_needed <- round(power_calc$n * 2) # *2, da n pro Gruppe berechnet wird
+  } else {
+    n_needed <- "> 1.000.000"
+  }
+
+  # D. Ergebnis lesbar ausgeben
+  cat("---------------------------------------------------\n")
+  cat("Dimension:", label, "\n")
+  cat(sprintf("t(%g) = %.2f; p = %.3f; d = %.3f\n", 
+              test$parameter, test$statistic, test$p.value, d_value))
+  cat("Notwendiges N (Gesamt) für Signifikanz:", n_needed, "\n")
+}
+```
+
+## t-test anwenden
+Die Funktion ermöglicht es, den gesamten Datensatz in zwei gewünschte Gruppen zu unterteilen und die oben denfinierte Funktion als paarweisen t-tests durchzufühen.
+T-tests können ausschließlich zwei Gruppen vergleichen.Eine Alternative ist die ANOVA. Der Vergleich zweier Gruppen ist in dieser Arbeit zeilführender.
+
+```{r functionPerGroupPairing}
+run_comparison <- function(data_full, group1, group2) {         # Hilfsfunktion, um zwei Gruppen zu vergleichen
+  df_subset <- data_full %>% 
+    filter(group %in% c(group1, group2))
+  
+  cat("\n===================================================\n")
+  cat("VERGLEICH:", group1, "vs.", group2, "\n")
+  cat("===================================================\n")
+  
+  # t-test Funktion (siehe oben) auf das Subset anwenden
+  analyze_kim_scale(df_subset, "kim_interesse", "Interesse/Vergnügen")
+  analyze_kim_scale(df_subset, "kim_kompetenz", "Wahrgenommene Kompetenz")
+  analyze_kim_scale(df_subset, "kim_wahl", "Wahrgenommene Wahlfreiheit")
+  analyze_kim_scale(df_subset, "kim_druck", "Anspannung/Druck")
+}
+```
+
+
+Hier wird die eben definierte Funktion durchgeführt:
+a. Exk und SZR
+b. Exk und GIS
+c. SZR und GIS
+
+```{r performPerGroupPairing}
+run_comparison(df_scales, "exk", "szr")    # a. Exkursion vs. SZR
+run_comparison(df_scales, "exk", "gis")    # b. Exkursion vs. GIS
+run_comparison(df_scales, "szr", "gis")    # c. SZR vs. GIS
+
+```
+

@@ -13,5 +13,17 @@
   "theoriePraxis.qmd": {
     "theoriePraxis.html": "532721d1",
     "theoriePraxis.tex": "ccff0eb1"
+  },
+  "t-test.qmd": {
+    "t-test.html": "91217f22",
+    "t-test.tex": "835987d9"
+  },
+  "t-test_pairwise.qmd": {
+    "t-test_pairwise.html": "b38d0096",
+    "t-test_pairwise.tex": "8eb255d3"
+  },
+  "zusatzitems.qmd": {
+    "zusatzitems.html": "79a33b02",
+    "zusatzitems.tex": "30fe5aea"
   }
 }

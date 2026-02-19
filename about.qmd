@@ -1,5 +1,6 @@
 ---
-title: "Über die Autoren"
+title: "Fragebogen"
+author: "Blersch, Mario"
 format: 
   html: default
   pdf: default
@@ -11,3 +12,6 @@ editor: visual
 -   [Keller, Johannes](https://www.researchgate.net/profile/Johannes-Keller-4)
 
 -   [Siegmund, Alexander](https://www.researchgate.net/profile/Alexander-Siegmund)
+
+
+![Fragebogen zu Setting B: ForestWatch (LUP)](Duerre-aus-dem-Weltall-erfassen_Fragebogen.pdf){.column-body-outset .lightbox width=100% height=100%}

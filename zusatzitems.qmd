@@ -1,0 +1,116 @@
+---
+title: "Zusatzitems"
+author: "Blersch, Mario"
+format: 
+  html: default
+  pdf: default
+editor: visual
+---
+
+
+![Fragebogen zu Setting B: ForestWatch (LUP)](Duerre-aus-dem-Weltall-erfassen_Fragebogen.pdf){.column-body-outset .lightbox width="100%" height="80vh"}
+
+# Zusatzitems
+
+Setting A (n = 49),	Setting B (n = 61) und Setting C (n = 35)
+
+- Das Fach Geographie in der Schule macht mir Spaß --> (X18) 4,19 (0,91)	3,33 (1,23)	2,76 (1,27)
+- Die Arbeit mit der Anwendung hatte für mich einen Sinn. --> (X6)	3,51 (0,98)	3,65 (1,06)	3,06 (1,00)
+- Die Arbeit mit Anwendungen im Unterricht finde ich gut. --> (X19)	4,32 (0,83)	3,25 (1,39)	2,93 (1,13)
+- Ich fand das Thema der Einheit spannend. --> (X24)	3,22 (1,06)	3,35 (1,12)	2,83 (1,07)
+
+
+## Packages importieren
+
+```{r importLibraries}
+#| label: load-packages
+#| message: false
+#| warning: false
+library(dplyr)
+library(readr)
+library(rstatix)  # Für Cohen's d
+library(pwr)      # Für die Stichproben-Berechnung (Power Analysis)
+```
+
+## Daten importieren und vorbereiten
+```{r importData}
+df_new <- read_delim("Blersch_KIM_Analyse_pub_new_bereinigt.csv", delim = ";", show_col_types = FALSE) %>%
+  rename(group = `ue-name`) # Gruppe zur Sicherheit umbenennen
+```
+# Zuordnung wegen id, sus, group und date
+
+```{r grabItems}
+geo_gut = df_new[22]   # Das Fach Geographie in der Schule macht mir Spaß (X18)
+anwendung_sinn = df_new[10]  # Die Arbeit mit BLIF:Explorer hatte für mich einen Sinn (X6)
+anwendung_gut = df_new[23]   # Die Arbeit mit Anwendungen im Unterricht finde ich gut (X19)
+thema_spannend = df_new[28] # Ich fand das Thema der Einheit spannend (X24)
+
+zusatzitems = df_new[,c(3, 22,10,23,28)] # check columns!
+```
+
+## Nach Settings splitten und Mittelwerte (Standardabweichung) berechnen
+```{r zusatzItemTabelle}
+
+zusatzItems = setNames(
+  df_new[, c(3, 22, 10, 23, 28)], 
+  c("gruppe", "geo_gut", "anwendung_sinn", "anwendung_gut", "thema_spannend")
+)
+print(zusatzItems)               # 
+```
+
+
+## Daten/Tabelle für Boxplot vorbereiten
+
+
+```{r VisualisierungVorbereitenNeu, include=TRUE}
+library(reshape2)
+library(ggplot2)
+
+# Schritt A: Wir binden die Gruppe (z.B. Spalte 1) an die 4 neuen Spalten
+# 'neuer_df' sind die 4 Spalten, die wir eben erstellt und benannt haben
+df_viz_ready = data.frame(gruppe = df_new[, 1], zusatzItems)
+
+# Schritt B: Umformen in das Long-Format
+# id.vars="Gruppe" sorgt dafür, dass die Gruppe erhalten bleibt und nicht "geschmolzen" wird
+data_plot = melt(df_viz_ready, 
+                  id.vars = "gruppe", 
+                  measure.vars = c("geo_gut", "anwendung_sinn", "anwendung_gut", "thema_spannend"))
+
+# Schritt C: Spalten benennen (für schöne Achsenbeschriftungen im Plot)
+colnames(data_plot) <- c("Gruppe", "Item", "Likert_Wert")
+
+data_plot$Gruppe <- factor(data_plot$Gruppe, levels = c("exk", "szr", "gis"))
+```
+
+# Visualisierung als Boxplots
+
+```{r Viz, include=TRUE}
+ggplot(data_plot, aes(x=Item, y=Likert_Wert, fill=Gruppe)) +
+  geom_boxplot(alpha=0.75) +
+  coord_cartesian(ylim = c(1, 5)) +
+  
+  # 1. ANPASSUNG DER GRUPPEN (Legende)
+  scale_fill_manual(
+    values = c("#252653","#FFC50B", "#FFFFFF", "#FFFFFF","#FFFFFF"),
+    name = "Gruppe",                        # Titel der Legende
+    labels = c("exk" = "Exkursion",
+               "szr" = "Satellitenzeitreihe",
+               "gis" = "GIS")         
+  ) +
+  
+  # 2. ANPASSUNG DER ITEMS (X-Achse)
+  scale_x_discrete(
+    labels = c(
+      "geo_gut" = "Geographie\nmacht mir Spaß",     # \n macht einen Zeilenumbruch
+      "anwendung_sinn" = "Anwendung hatte\n für mich einen Sinn",
+      "anwendung_gut" = "Anwendungen\n nutzen finde ich gut",
+      "thema_spannend" = "Thema der Einheit\nwar spannend"
+    )
+  ) +
+  theme_bw() +
+  theme(legend.position="bottom", plot.title = element_text(size=11)) +
+  labs(x = "Item", y = "Likert Skala")
+```
+
+
+

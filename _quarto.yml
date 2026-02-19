@@ -11,6 +11,8 @@ website:
       - href: index.qmd
         text: Hintergrund
       - blersch_KIM_analyse_20260102_website.qmd
+      - t-test_pairwise.qmd
+      - zusatzitems.qmd
       - theoriePraxis.qmd
       - about.qmd
     tools:

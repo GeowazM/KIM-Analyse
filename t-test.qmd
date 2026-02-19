@@ -1,0 +1,112 @@
+---
+title: "Fragebogen"
+format: 
+  html: default
+  pdf: default
+editor: visual
+---
+
+-   [Blersch, Mario](https://www.researchgate.net/profile/Mario-Blersch)
+
+-   [Keller, Johannes](https://www.researchgate.net/profile/Johannes-Keller-4)
+
+-   [Siegmund, Alexander](https://www.researchgate.net/profile/Alexander-Siegmund)
+
+![Fragebogen zu Setting B: ForestWatch (LUP)](Duerre-aus-dem-Weltall-erfassen_Fragebogen.pdf){.column-body-outset .lightbox width="100%" height="100%"}
+
+
+
+# T-Test ballern
+
+## Libraries
+
+```{r a}
+library(dplyr)
+library(readr)
+library(rstatix)  # Für Cohen's d
+library(pwr)      # Für die Stichproben-Berechnung (Power Analysis)
+```
+
+## Daten einlesen und bereinigen (-99 zu NA)
+
+```{r b}
+df_new <- read_delim("Blersch_KIM_Analyse_pub_new_bereinigt.csv", delim = ";", show_col_types = FALSE) %>%
+  rename(group = `ue-name`) # Gruppe zur Sicherheit umbenennen
+```
+
+## Skalen bilden (Mittelwerte der Items)
+
+BITTE ANPASSEN: Welche Items gehören zu welcher Skala? skalenwert_interesse = rowMeans(df\[, c("X1", "X5", "X13")\]) \# Interesse skalenwert_wahlfreiheit = rowMeans(df\[, c("X3", "X9", "X15")\]) \# Wahlfreiheit skalenwert_druck = rowMeans(df\[, c("X4", "X14", "X16")\]) \# Druck skalenwert_kompetenz = rowMeans(df\[, c("X7", "X8", "X11")\]) \# Kompetenz
+
+```{r c}
+df_scales <- df_new %>%
+  rowwise() %>%
+  mutate(
+    # Skala 1: Interesse / Vergnügen (Beispiel: Items 1, 5, 9, 13...)
+    kim_interesse = mean(c_across(c("1", "5", "13")), na.rm = TRUE),
+    
+    # Skala 2: Wahrgenommene Kompetenz
+    kim_kompetenz = mean(c_across(c("7", "8", "11")), na.rm = TRUE),
+    
+    # Skala 3: Wahrgenommene Wahlfreiheit
+    kim_wahl = mean(c_across(c("3", "9", "15")), na.rm = TRUE),
+    
+    # Skala 4: Druck / Anspannung
+    kim_druck = mean(c_across(c("4", "14", "16")), na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+## T-tests: Generische Funktion schreiben
+```{r d}
+# ---------------------------------------------------------
+# Funktion schreiben, die alle Werte (t-Test, d, N) berechnet
+# ---------------------------------------------------------
+analyze_kim_scale <- function(data, variable_name, label) {
+  
+  # A. t-Test berechnen
+  # var.equal = TRUE entspricht dem Standard-t-Test (wie oft in Sozialwiss. genutzt)
+  # Falls Varianzen sehr ungleich sind, nimm var.equal = FALSE
+  test <- t.test(data[[variable_name]] ~ data$group, var.equal = TRUE)
+  
+  # B. Cohen's d berechnen
+  # Wir bauen die Formel dynamisch zusammen
+  formula_d <- as.formula(paste(variable_name, "~ group"))
+  eff_size <- data %>% cohens_d(formula_d, var.equal = TRUE)
+  d_value <- abs(eff_size$effsize) # Betrag nehmen (Richtung egal für Power)
+  
+  # C. Notwendiges N berechnen (Power Analysis)
+  # Wir prüfen: Wie viele bräuchte man für Signifikanz (alpha=0.05) bei Power=0.80
+  # Hinweis: Wenn d sehr klein ist (< 0.01), explodiert die Zahl. Wir fangen das ab.
+  if(d_value > 0.001) {
+    power_calc <- pwr.t.test(d = d_value, sig.level = 0.05, power = 0.80, type = "two.sample")
+    n_needed <- round(power_calc$n * 2) # *2, da n pro Gruppe berechnet wird
+  } else {
+    n_needed <- "> 1.000.000"
+  }
+
+  # D. Ergebnis schön ausgeben
+  cat("---------------------------------------------------\n")
+  cat("Skala:", label, "\n")
+  cat(sprintf("t(%g) = %.2f; p = %.3f; d = %.3f\n", 
+              test$parameter, test$statistic, test$p.value, d_value))
+  cat("Notwendiges N (Gesamt) für Signifikanz:", n_needed, "\n")
+}
+```
+
+## Funktionen auf alle Dimensionen anwenden
+
+```{r e}
+# ---------------------------------------------------------
+# 3. Analyse für alle Skalen durchführen
+# ---------------------------------------------------------
+
+# Prüfen, welche Gruppen wir vergleichen (nur zur Info)
+print(unique(df_scales$group))
+
+# Hier die Analyse starten
+#analyze_kim_scale(df_scales, "kim_interesse", "Interesse/Vergnügen")
+#analyze_kim_scale(df_scales, "kim_kompetenz", "Wahrgenommene Kompetenz")
+#analyze_kim_scale(df_scales, "kim_wahl", "Wahrgenommene Wahlfreiheit")
+#analyze_kim_scale(df_scales, "kim_druck", "Anspannung/Druck")
+```

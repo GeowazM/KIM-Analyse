@@ -1,0 +1,8 @@
+"";"   susID";"                 ueID";"ueName";"    date";"  Interesse";" Wahlfreiheit";"    Druck";"  Kompetenz";"    Zusatz"
+"";"Length:35         ";"Exkursion          : 0  ";"exk: 0  ";"Length:35         ";"Min.   :1.000  ";"Min.   :1.000  ";"Min.   :1.000  ";"Min.   :1.333  ";"Min.   :1.500  "
+"";"Class :character  ";"Satellitenzeitreihe: 0  ";"szr: 0  ";"Class :character  ";"1st Qu.:2.000  ";"1st Qu.:2.000  ";"1st Qu.:1.333  ";"1st Qu.:3.000  ";"1st Qu.:2.500  "
+"";"Mode  :character  ";"GIS                :35  ";"gis:35  ";"Mode  :character  ";"Median :3.000  ";"Median :2.667  ";"Median :2.000  ";"Median :3.333  ";"Median :3.000  "
+"";NA;NA;NA;NA;"Mean   :2.829  ";"Mean   :2.727  ";"Mean   :2.152  ";"Mean   :3.400  ";"Mean   :2.962  "
+"";NA;NA;NA;NA;"3rd Qu.:3.667  ";"3rd Qu.:3.333  ";"3rd Qu.:2.667  ";"3rd Qu.:4.333  ";"3rd Qu.:3.500  "
+"";NA;NA;NA;NA;"Max.   :4.333  ";"Max.   :4.000  ";"Max.   :4.000  ";"Max.   :5.000  ";"Max.   :4.250  "
+"";NA;NA;NA;NA;NA;"NA's   :2  ";NA;NA;"NA's   :2  "

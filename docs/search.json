@@ -1,10 +1,94 @@
 [
   {
-    "objectID": "theoriePraxis.html",
-    "href": "theoriePraxis.html",
-    "title": "Theorie und Praxis",
+    "objectID": "zusatzitems.html",
+    "href": "zusatzitems.html",
+    "title": "Zusatzitems",
     "section": "",
-    "text": "Reliabilität prüfen mit Cronbachs alpha\n\nStreiner, D. L. (2003): Starting at the Beginning: An Introduction to Coefficient Alpha and Internal Consistency, Journal of Personality Assessment, 80:1, S. 99-103. doi: https://doi.org/10.1207/S15327752JPA8001_18\n\nEine praktische Anleitung dazu findet sich hier: https://bjoernwalther.com/cronbachs-alpha-in-r-berechnen/.\n\n\n\nSkalenwerte bilden\nEine praktische Anleitung dazu findet sich hier: https://bjoernwalther.com/skalen-aus-items-in-r-bilden/.\n\nWenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.\n\n\nDeskriptive Statistik\nIm Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der…\n\n\nVisualisierung\nQuelle: https://r-graph-gallery.com/89-box-and-scatter-plot-with-ggplot2.html"
+    "text": "Fragebogen zu Setting B: ForestWatch (LUP)"
+  },
+  {
+    "objectID": "zusatzitems.html#packages-importieren",
+    "href": "zusatzitems.html#packages-importieren",
+    "title": "Zusatzitems",
+    "section": "Packages importieren",
+    "text": "Packages importieren\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(rstatix)  # Für Cohen's d\nlibrary(pwr)      # Für die Stichproben-Berechnung (Power Analysis)"
+  },
+  {
+    "objectID": "zusatzitems.html#daten-importieren-und-vorbereiten",
+    "href": "zusatzitems.html#daten-importieren-und-vorbereiten",
+    "title": "Zusatzitems",
+    "section": "Daten importieren und vorbereiten",
+    "text": "Daten importieren und vorbereiten\n\ndf_new &lt;- read_delim(\"Blersch_KIM_Analyse_pub_new_bereinigt.csv\", delim = \";\", show_col_types = FALSE) %&gt;%\n  rename(group = `ue-name`) # Gruppe zur Sicherheit umbenennen\n\nNew names:\n• `` -&gt; `...37`"
+  },
+  {
+    "objectID": "zusatzitems.html#nach-settings-splitten-und-mittelwerte-standardabweichung-berechnen",
+    "href": "zusatzitems.html#nach-settings-splitten-und-mittelwerte-standardabweichung-berechnen",
+    "title": "Zusatzitems",
+    "section": "Nach Settings splitten und Mittelwerte (Standardabweichung) berechnen",
+    "text": "Nach Settings splitten und Mittelwerte (Standardabweichung) berechnen\n\nzusatzItems = setNames(\n  df_new[, c(3, 22, 10, 23, 28)], \n  c(\"gruppe\", \"geo_gut\", \"anwendung_sinn\", \"anwendung_gut\", \"thema_spannend\")\n)\nprint(zusatzItems)               # \n\n# A tibble: 147 × 5\n   gruppe geo_gut anwendung_sinn anwendung_gut thema_spannend\n   &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;\n 1 exk          5              4             5              4\n 2 exk          4              3             5              3\n 3 exk          4              4             4              4\n 4 exk          5              5             5              5\n 5 exk          5              3             4              2\n 6 exk          5              4             5              2\n 7 exk          4              4             5              3\n 8 exk          5              4             4              2\n 9 exk          5              5             5              4\n10 exk          3              3             3              4\n# ℹ 137 more rows"
+  },
+  {
+    "objectID": "zusatzitems.html#datentabelle-für-boxplot-vorbereiten",
+    "href": "zusatzitems.html#datentabelle-für-boxplot-vorbereiten",
+    "title": "Zusatzitems",
+    "section": "Daten/Tabelle für Boxplot vorbereiten",
+    "text": "Daten/Tabelle für Boxplot vorbereiten\n\nlibrary(reshape2)\n\nWarning: Paket 'reshape2' wurde unter R Version 4.4.3 erstellt\n\nlibrary(ggplot2)\n\nWarning: Paket 'ggplot2' wurde unter R Version 4.4.3 erstellt\n\n# Schritt A: Wir binden die Gruppe (z.B. Spalte 1) an die 4 neuen Spalten\n# 'neuer_df' sind die 4 Spalten, die wir eben erstellt und benannt haben\ndf_viz_ready = data.frame(gruppe = df_new[, 1], zusatzItems)\n\n# Schritt B: Umformen in das Long-Format\n# id.vars=\"Gruppe\" sorgt dafür, dass die Gruppe erhalten bleibt und nicht \"geschmolzen\" wird\ndata_plot = melt(df_viz_ready, \n                  id.vars = \"gruppe\", \n                  measure.vars = c(\"geo_gut\", \"anwendung_sinn\", \"anwendung_gut\", \"thema_spannend\"))\n\n# Schritt C: Spalten benennen (für schöne Achsenbeschriftungen im Plot)\ncolnames(data_plot) &lt;- c(\"Gruppe\", \"Item\", \"Likert_Wert\")\n\ndata_plot$Gruppe &lt;- factor(data_plot$Gruppe, levels = c(\"exk\", \"szr\", \"gis\"))"
+  },
+  {
+    "objectID": "t-test_pairwise.html",
+    "href": "t-test_pairwise.html",
+    "title": "Paarweise t-tests",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(readr)\nlibrary(rstatix)  # Für Cohen's d\nlibrary(pwr)      # Für die Stichproben-Berechnung (Power Analysis)"
+  },
+  {
+    "objectID": "t-test_pairwise.html#packages-importieren",
+    "href": "t-test_pairwise.html#packages-importieren",
+    "title": "Paarweise t-tests",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(readr)\nlibrary(rstatix)  # Für Cohen's d\nlibrary(pwr)      # Für die Stichproben-Berechnung (Power Analysis)"
+  },
+  {
+    "objectID": "t-test_pairwise.html#daten-importieren-und-vorbereiten",
+    "href": "t-test_pairwise.html#daten-importieren-und-vorbereiten",
+    "title": "Paarweise t-tests",
+    "section": "Daten importieren und vorbereiten",
+    "text": "Daten importieren und vorbereiten\n\ndf_new &lt;- read_delim(\"Blersch_KIM_Analyse_pub_new_bereinigt.csv\", delim = \";\", show_col_types = FALSE) %&gt;%\n  rename(group = `ue-name`) # Gruppe zur Sicherheit umbenennen\n\nNew names:\n• `` -&gt; `...37`"
+  },
+  {
+    "objectID": "t-test_pairwise.html#skalenwerte-bilden",
+    "href": "t-test_pairwise.html#skalenwerte-bilden",
+    "title": "Paarweise t-tests",
+    "section": "Skalenwerte bilden",
+    "text": "Skalenwerte bilden\nWelche Items gehören zu welcher Skala: - skalenwert_interesse = rowMeans(df[, c(“X1”, “X5”, “X13”)]) - Interesse skalenwert_wahlfreiheit = rowMeans(df[, c(“X3”, “X9”, “X15”)]) - Wahlfreiheit skalenwert_druck = rowMeans(df[, c(“X4”, “X14”, “X16”)]) - Druck skalenwert_kompetenz = rowMeans(df[, c(“X7”, “X8”, “X11”)]) # Kompetenz\n\ndf_scales &lt;- df_new %&gt;%\n  rowwise() %&gt;%\n  mutate(\n    kim_interesse = mean(c_across(c(\"1\", \"5\", \"13\")), na.rm = TRUE), # Interesse\n    kim_kompetenz = mean(c_across(c(\"7\", \"8\", \"11\")), na.rm = TRUE), # Kompetenz\n    kim_wahl = mean(c_across(c(\"3\", \"9\", \"15\")), na.rm = TRUE),      # Wahlfreiheit\n    kim_druck = mean(c_across(c(\"4\", \"14\", \"16\")), na.rm = TRUE)     # Druck\n  ) %&gt;%\n  ungroup()"
+  },
+  {
+    "objectID": "t-test_pairwise.html#funktion-paarweise-t-test",
+    "href": "t-test_pairwise.html#funktion-paarweise-t-test",
+    "title": "Paarweise t-tests",
+    "section": "Funktion: Paarweise t-test",
+    "text": "Funktion: Paarweise t-test\nDie Funktion nimmt zwei Gruppen und berechnet den t-test [A.] sowie Cohens d [B.] (Effektstärke). Auf Basis des Signifikanzwertes und der Effektstärke wird das “Notwendiges N” [C.] (Power Analysis) abgeleitet. Details zu den Funktionen und deren Parameter innerhalb dieser Funktion kann in den R-packages eingesehen werden.\n\n# ---------------------------------------------------------\n# Funktion schreiben, die alle Werte (t-Test, d, N) berechnet\n# ---------------------------------------------------------\nanalyze_kim_scale &lt;- function(data, variable_name, label) {\n  \n  # A. t-Test berechnen\n  test &lt;- t.test(data[[variable_name]] ~ data$group, var.equal = TRUE)\n  \n  # B. Cohen's d berechnen (dynamisch)\n  formula_d &lt;- as.formula(paste(variable_name, \"~ group\"))\n  eff_size &lt;- data %&gt;% cohens_d(formula_d, var.equal = TRUE)\n  d_value &lt;- abs(eff_size$effsize) # Betrag nehmen (Richtung egal für Power)\n  \n  # C. Notwendiges N berechnen (Power Analysis) \n  # Wie viele bräuchte man für Signifikanz (alpha=0.05) bei Power=0.80\n  # Hinweis: Wenn d sehr klein ist (&lt; 0.01), explodiert die Zahl. Wir mit if abgefangen\n  if(d_value &gt; 0.001) {\n    power_calc &lt;- pwr.t.test(d = d_value, sig.level = 0.05, power = 0.80, type = \"two.sample\")\n    n_needed &lt;- round(power_calc$n * 2) # *2, da n pro Gruppe berechnet wird\n  } else {\n    n_needed &lt;- \"&gt; 1.000.000\"\n  }\n\n  # D. Ergebnis lesbar ausgeben\n  cat(\"---------------------------------------------------\\n\")\n  cat(\"Dimension:\", label, \"\\n\")\n  cat(sprintf(\"t(%g) = %.2f; p = %.3f; d = %.3f\\n\", \n              test$parameter, test$statistic, test$p.value, d_value))\n  cat(\"Notwendiges N (Gesamt) für Signifikanz:\", n_needed, \"\\n\")\n}"
+  },
+  {
+    "objectID": "t-test_pairwise.html#t-test-anwenden",
+    "href": "t-test_pairwise.html#t-test-anwenden",
+    "title": "Paarweise t-tests",
+    "section": "t-test anwenden",
+    "text": "t-test anwenden\nDie Funktion ermöglicht es, den gesamten Datensatz in zwei gewünschte Gruppen zu unterteilen und die oben denfinierte Funktion als paarweisen t-tests durchzufühen. T-tests können ausschließlich zwei Gruppen vergleichen.Eine Alternative ist die ANOVA. Der Vergleich zweier Gruppen ist in dieser Arbeit zeilführender.\n\nrun_comparison &lt;- function(data_full, group1, group2) {         # Hilfsfunktion, um zwei Gruppen zu vergleichen\n  df_subset &lt;- data_full %&gt;% \n    filter(group %in% c(group1, group2))\n  \n  cat(\"\\n===================================================\\n\")\n  cat(\"VERGLEICH:\", group1, \"vs.\", group2, \"\\n\")\n  cat(\"===================================================\\n\")\n  \n  # t-test Funktion (siehe oben) auf das Subset anwenden\n  analyze_kim_scale(df_subset, \"kim_interesse\", \"Interesse/Vergnügen\")\n  analyze_kim_scale(df_subset, \"kim_kompetenz\", \"Wahrgenommene Kompetenz\")\n  analyze_kim_scale(df_subset, \"kim_wahl\", \"Wahrgenommene Wahlfreiheit\")\n  analyze_kim_scale(df_subset, \"kim_druck\", \"Anspannung/Druck\")\n}\n\nHier wird die eben definierte Funktion durchgeführt: a. Exk und SZR b. Exk und GIS c. SZR und GIS\n\nrun_comparison(df_scales, \"exk\", \"szr\")    # a. Exkursion vs. SZR\n\n\n===================================================\nVERGLEICH: exk vs. szr \n===================================================\n---------------------------------------------------\nDimension: Interesse/Vergnügen \nt(110) = 1.06; p = 0.293; d = 0.201\nNotwendiges N (Gesamt) für Signifikanz: 778 \n---------------------------------------------------\nDimension: Wahrgenommene Kompetenz \nt(110) = 1.46; p = 0.148; d = 0.277\nNotwendiges N (Gesamt) für Signifikanz: 410 \n---------------------------------------------------\nDimension: Wahrgenommene Wahlfreiheit \nt(110) = 1.53; p = 0.130; d = 0.291\nNotwendiges N (Gesamt) für Signifikanz: 373 \n---------------------------------------------------\nDimension: Anspannung/Druck \nt(110) = -0.60; p = 0.550; d = 0.114\nNotwendiges N (Gesamt) für Signifikanz: 2410 \n\nrun_comparison(df_scales, \"exk\", \"gis\")    # b. Exkursion vs. GIS\n\n\n===================================================\nVERGLEICH: exk vs. gis \n===================================================\n---------------------------------------------------\nDimension: Interesse/Vergnügen \nt(82) = 4.23; p = 0.000; d = 0.936\nNotwendiges N (Gesamt) für Signifikanz: 38 \n---------------------------------------------------\nDimension: Wahrgenommene Kompetenz \nt(82) = 2.58; p = 0.012; d = 0.571\nNotwendiges N (Gesamt) für Signifikanz: 98 \n---------------------------------------------------\nDimension: Wahrgenommene Wahlfreiheit \nt(82) = 4.47; p = 0.000; d = 0.990\nNotwendiges N (Gesamt) für Signifikanz: 34 \n---------------------------------------------------\nDimension: Anspannung/Druck \nt(82) = -2.05; p = 0.043; d = 0.454\nNotwendiges N (Gesamt) für Signifikanz: 154 \n\nrun_comparison(df_scales, \"szr\", \"gis\")    # c. SZR vs. GIS\n\n\n===================================================\nVERGLEICH: szr vs. gis \n===================================================\n---------------------------------------------------\nDimension: Interesse/Vergnügen \nt(96) = -3.37; p = 0.001; d = 0.711\nNotwendiges N (Gesamt) für Signifikanz: 64 \n---------------------------------------------------\nDimension: Wahrgenommene Kompetenz \nt(96) = -1.24; p = 0.220; d = 0.260\nNotwendiges N (Gesamt) für Signifikanz: 465 \n---------------------------------------------------\nDimension: Wahrgenommene Wahlfreiheit \nt(96) = -3.01; p = 0.003; d = 0.634\nNotwendiges N (Gesamt) für Signifikanz: 80 \n---------------------------------------------------\nDimension: Anspannung/Druck \nt(96) = 1.40; p = 0.164; d = 0.295\nNotwendiges N (Gesamt) für Signifikanz: 361"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Willkommen",
+    "section": "",
+    "text": "Diese Seite listet die Methodik, die in … angewandt wurde. Dadurch soll im Sinne der DFG die Transparenz und Rerpoduzierbarkeit einer wissenschaftlichen Arbeit gesteigert werden. Darüber hinaus können Daten und Skript in der Hochschullehre eingesetzt werden, um originale Arbeiten behandeln zu können.\n\nKurzskala intrinisische Motivation (KIM)\nIm Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der jeweiligen Unterrichtseinheit mit der Kurzskala intrinsische Motivation (KIM)-Skala nach Wilde et al. (2009) gemessen. Diese KIM-Skala basiert auf dem Intrinsic Motivation Inventory (IMI) erstellte Fragebogen und erfasst Interesse, Kompetenzwahrnehmung und Autonomieerleben der Lernenden in vier Dimensionen (Keller et al. 2024).\nSiehe u.a.:\n\nWilde, M., Bätz, K., Kovaleva, A., & Urhahne, D. (2009). Überprüfung einer Kurzskala intrinsischer Motivation (KIM). Zeitschrift für Didaktik der Naturwissenschaften, 15, 31-45. Oline: https://www.pedocs.de/frontdoor.php?source_opus=31663\nKeller, J., Heger, J., Petersen, M., Blersch, M., Siegmund, A. (2024). Einfluss von Alter, Anzahl mobiler Endgeräte und Festlegung der Interaktionsräume auf die intrinsische Motivation bei App-gestützten Exkursionen mit Satellitenbildern.GW-Unterricht, 176 (4/2024), 35-51. doi: https://doi.org/10.1553/gw-unterricht176s35"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Fragebogen",
+    "section": "",
+    "text": "Blersch, Mario\nKeller, Johannes\nSiegmund, Alexander\n\n\n\n\nFragebogen zu Setting B: ForestWatch (LUP)"
   },
   {
     "objectID": "blersch_KIM_analyse_20260102_website.html",
@@ -84,17 +168,52 @@
     "text": "Boxplot erstellen\nVorlage aus: https://r-graph-gallery.com/265-grouped-boxplot-with-ggplot2.html\n\nggplot(data, aes(x=KIM, y=Likert, fill=Gruppe)) +                                       \n  geom_boxplot(alpha=0.75) +    # hier bezieht sich alpha auf die Transparenz der Farbe\n  ylim(1, 5) +\n  scale_fill_manual(values=c(\"#252653\",\"#FFC50B\")) +       # Farbgebung\n  theme_bw() +\n  theme(legend.position=\"bottom\", plot.title = element_text(size=11)) +\n  xlab(\"KIM Bereiche\") +\n  ylab(\"Likert Skala\")"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Über die Autoren",
+    "objectID": "t-test.html",
+    "href": "t-test.html",
+    "title": "Fragebogen",
     "section": "",
     "text": "Blersch, Mario\nKeller, Johannes\nSiegmund, Alexander"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Willkommen",
+    "objectID": "t-test.html#libraries",
+    "href": "t-test.html#libraries",
+    "title": "Fragebogen",
+    "section": "Libraries",
+    "text": "Libraries\n\nlibrary(dplyr)\n\n\nAttache Paket: 'dplyr'\n\n\nDie folgenden Objekte sind maskiert von 'package:stats':\n\n    filter, lag\n\n\nDie folgenden Objekte sind maskiert von 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(readr)\nlibrary(rstatix)  # Für Cohen's d\n\n\nAttache Paket: 'rstatix'\n\n\nDas folgende Objekt ist maskiert 'package:stats':\n\n    filter\n\nlibrary(pwr)      # Für die Stichproben-Berechnung (Power Analysis)\n\nWarning: Paket 'pwr' wurde unter R Version 4.4.3 erstellt"
+  },
+  {
+    "objectID": "t-test.html#daten-einlesen-und-bereinigen--99-zu-na",
+    "href": "t-test.html#daten-einlesen-und-bereinigen--99-zu-na",
+    "title": "Fragebogen",
+    "section": "Daten einlesen und bereinigen (-99 zu NA)",
+    "text": "Daten einlesen und bereinigen (-99 zu NA)\n\ndf_new &lt;- read_delim(\"Blersch_KIM_Analyse_pub_new_bereinigt.csv\", delim = \";\", show_col_types = FALSE) %&gt;%\n  rename(group = `ue-name`) # Gruppe zur Sicherheit umbenennen\n\nNew names:\n• `` -&gt; `...37`"
+  },
+  {
+    "objectID": "t-test.html#skalen-bilden-mittelwerte-der-items",
+    "href": "t-test.html#skalen-bilden-mittelwerte-der-items",
+    "title": "Fragebogen",
+    "section": "Skalen bilden (Mittelwerte der Items)",
+    "text": "Skalen bilden (Mittelwerte der Items)\nBITTE ANPASSEN: Welche Items gehören zu welcher Skala? skalenwert_interesse = rowMeans(df[, c(“X1”, “X5”, “X13”)]) # Interesse skalenwert_wahlfreiheit = rowMeans(df[, c(“X3”, “X9”, “X15”)]) # Wahlfreiheit skalenwert_druck = rowMeans(df[, c(“X4”, “X14”, “X16”)]) # Druck skalenwert_kompetenz = rowMeans(df[, c(“X7”, “X8”, “X11”)]) # Kompetenz\n\ndf_scales &lt;- df_new %&gt;%\n  rowwise() %&gt;%\n  mutate(\n    # Skala 1: Interesse / Vergnügen (Beispiel: Items 1, 5, 9, 13...)\n    kim_interesse = mean(c_across(c(\"1\", \"5\", \"13\")), na.rm = TRUE),\n    \n    # Skala 2: Wahrgenommene Kompetenz\n    kim_kompetenz = mean(c_across(c(\"7\", \"8\", \"11\")), na.rm = TRUE),\n    \n    # Skala 3: Wahrgenommene Wahlfreiheit\n    kim_wahl = mean(c_across(c(\"3\", \"9\", \"15\")), na.rm = TRUE),\n    \n    # Skala 4: Druck / Anspannung\n    kim_druck = mean(c_across(c(\"4\", \"14\", \"16\")), na.rm = TRUE)\n  ) %&gt;%\n  ungroup()"
+  },
+  {
+    "objectID": "t-test.html#t-tests-generische-funktion-schreiben",
+    "href": "t-test.html#t-tests-generische-funktion-schreiben",
+    "title": "Fragebogen",
+    "section": "T-tests: Generische Funktion schreiben",
+    "text": "T-tests: Generische Funktion schreiben\n\n# ---------------------------------------------------------\n# Funktion schreiben, die alle Werte (t-Test, d, N) berechnet\n# ---------------------------------------------------------\nanalyze_kim_scale &lt;- function(data, variable_name, label) {\n  \n  # A. t-Test berechnen\n  # var.equal = TRUE entspricht dem Standard-t-Test (wie oft in Sozialwiss. genutzt)\n  # Falls Varianzen sehr ungleich sind, nimm var.equal = FALSE\n  test &lt;- t.test(data[[variable_name]] ~ data$group, var.equal = TRUE)\n  \n  # B. Cohen's d berechnen\n  # Wir bauen die Formel dynamisch zusammen\n  formula_d &lt;- as.formula(paste(variable_name, \"~ group\"))\n  eff_size &lt;- data %&gt;% cohens_d(formula_d, var.equal = TRUE)\n  d_value &lt;- abs(eff_size$effsize) # Betrag nehmen (Richtung egal für Power)\n  \n  # C. Notwendiges N berechnen (Power Analysis)\n  # Wir prüfen: Wie viele bräuchte man für Signifikanz (alpha=0.05) bei Power=0.80\n  # Hinweis: Wenn d sehr klein ist (&lt; 0.01), explodiert die Zahl. Wir fangen das ab.\n  if(d_value &gt; 0.001) {\n    power_calc &lt;- pwr.t.test(d = d_value, sig.level = 0.05, power = 0.80, type = \"two.sample\")\n    n_needed &lt;- round(power_calc$n * 2) # *2, da n pro Gruppe berechnet wird\n  } else {\n    n_needed &lt;- \"&gt; 1.000.000\"\n  }\n\n  # D. Ergebnis schön ausgeben\n  cat(\"---------------------------------------------------\\n\")\n  cat(\"Skala:\", label, \"\\n\")\n  cat(sprintf(\"t(%g) = %.2f; p = %.3f; d = %.3f\\n\", \n              test$parameter, test$statistic, test$p.value, d_value))\n  cat(\"Notwendiges N (Gesamt) für Signifikanz:\", n_needed, \"\\n\")\n}"
+  },
+  {
+    "objectID": "t-test.html#funktionen-auf-alle-dimensionen-anwenden",
+    "href": "t-test.html#funktionen-auf-alle-dimensionen-anwenden",
+    "title": "Fragebogen",
+    "section": "Funktionen auf alle Dimensionen anwenden",
+    "text": "Funktionen auf alle Dimensionen anwenden\n\n# ---------------------------------------------------------\n# 3. Analyse für alle Skalen durchführen\n# ---------------------------------------------------------\n\n# Prüfen, welche Gruppen wir vergleichen (nur zur Info)\nprint(unique(df_scales$group))\n\n[1] \"exk\" \"szr\" \"gis\"\n\n# Hier die Analyse starten\n#analyze_kim_scale(df_scales, \"kim_interesse\", \"Interesse/Vergnügen\")\n#analyze_kim_scale(df_scales, \"kim_kompetenz\", \"Wahrgenommene Kompetenz\")\n#analyze_kim_scale(df_scales, \"kim_wahl\", \"Wahrgenommene Wahlfreiheit\")\n#analyze_kim_scale(df_scales, \"kim_druck\", \"Anspannung/Druck\")"
+  },
+  {
+    "objectID": "theoriePraxis.html",
+    "href": "theoriePraxis.html",
+    "title": "Theorie und Praxis",
     "section": "",
-    "text": "Diese Seite listet die Methodik, die in … angewandt wurde. Dadurch soll im Sinne der DFG die Transparenz und Rerpoduzierbarkeit einer wissenschaftlichen Arbeit gesteigert werden. Darüber hinaus können Daten und Skript in der Hochschullehre eingesetzt werden, um originale Arbeiten behandeln zu können.\n\nKurzskala intrinisische Motivation (KIM)\nIm Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der jeweiligen Unterrichtseinheit mit der Kurzskala intrinsische Motivation (KIM)-Skala nach Wilde et al. (2009) gemessen. Diese KIM-Skala basiert auf dem Intrinsic Motivation Inventory (IMI) erstellte Fragebogen und erfasst Interesse, Kompetenzwahrnehmung und Autonomieerleben der Lernenden in vier Dimensionen (Keller et al. 2024).\nSiehe u.a.:\n\nWilde, M., Bätz, K., Kovaleva, A., & Urhahne, D. (2009). Überprüfung einer Kurzskala intrinsischer Motivation (KIM). Zeitschrift für Didaktik der Naturwissenschaften, 15, 31-45. Oline: https://www.pedocs.de/frontdoor.php?source_opus=31663\nKeller, J., Heger, J., Petersen, M., Blersch, M., Siegmund, A. (2024). Einfluss von Alter, Anzahl mobiler Endgeräte und Festlegung der Interaktionsräume auf die intrinsische Motivation bei App-gestützten Exkursionen mit Satellitenbildern.GW-Unterricht, 176 (4/2024), 35-51. doi: https://doi.org/10.1553/gw-unterricht176s35"
+    "text": "Reliabilität prüfen mit Cronbachs alpha\n\nStreiner, D. L. (2003): Starting at the Beginning: An Introduction to Coefficient Alpha and Internal Consistency, Journal of Personality Assessment, 80:1, S. 99-103. doi: https://doi.org/10.1207/S15327752JPA8001_18\n\nEine praktische Anleitung dazu findet sich hier: https://bjoernwalther.com/cronbachs-alpha-in-r-berechnen/.\n\n\n\nSkalenwerte bilden\nEine praktische Anleitung dazu findet sich hier: https://bjoernwalther.com/skalen-aus-items-in-r-bilden/.\n\nWenn cronbach alpha akzeptabele ist, dann können Skalenwerte (Mean) der Dimensionen gebildet werden. Skalenwerte von bspw. Interesse mit rowMeans berechnen.\n\n\nDeskriptive Statistik\nIm Rahmen dieser Arbeit wurde die intrinsische Motivation der Teilnehmenden nach Abschluss der…\n\n\nVisualisierung\nQuelle: https://r-graph-gallery.com/89-box-and-scatter-plot-with-ggplot2.html"
   }
 ]
